@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Void Space theme sample — HTML & CSS showcase" />
+  <title>Void Space · Theme Preview</title>
+
+  <style>
+    /* Reset & custom properties */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --void:      #0d0f18;
+      --void-alt:  #131628;
+      --nebula:    #c792ea;
+      --aurora:    #89ddff;
+      --comet:     #82aaff;
+      --pulsar:    #ff5370;
+      --quasar:    #ffcb6b;
+      --stardust:  #a6accd;
+      --white:     #e7e9f0;
+
+      --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+      --font-sans: 'Inter', system-ui, sans-serif;
+      --radius:    8px;
+      --gap:       1.5rem;
+    }
+
+    body {
+      background-color: var(--void);
+      color:            var(--stardust);
+      font-family:      var(--font-sans);
+      line-height:      1.6;
+      padding:          2rem;
+    }
+
+    /* Typography */
+    h1, h2, h3 { color: var(--white); line-height: 1.2; }
+    h1 { font-size: clamp(1.8rem, 5vw, 3rem); margin-bottom: .25em; }
+    h2 { font-size: 1.4rem; margin-block: 2rem 1rem; border-bottom: 1px solid #2a2d45; padding-bottom: .4rem; }
+    h3 { font-size: 1.1rem; color: var(--nebula); }
+
+    p    { max-width: 70ch; margin-bottom: .75rem; }
+    a    { color: var(--comet); text-decoration: none; }
+    a:hover { color: var(--aurora); text-decoration: underline; }
+    code { font-family: var(--font-mono); font-size: .85em; color: var(--quasar); }
+    pre  {
+      background: var(--void-alt);
+      border:     1px solid #2a2d45;
+      border-radius: var(--radius);
+      padding:    1.25rem;
+      overflow-x: auto;
+      font-family: var(--font-mono);
+      font-size:  .875rem;
+      line-height: 1.5;
+    }
+
+    /* Layout */
+    header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+
+    .badge {
+      background: var(--nebula);
+      color:      var(--void);
+      font-size:  .75rem;
+      font-weight: 700;
+      padding:    .2em .6em;
+      border-radius: 999px;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: var(--gap);
+      margin-bottom: 2rem;
+    }
+
+    /* Card */
+    .card {
+      background:    var(--void-alt);
+      border:        1px solid #2a2d45;
+      border-radius: var(--radius);
+      padding:       1.5rem;
+      transition:    border-color 200ms ease, transform 200ms ease;
+    }
+    .card:hover {
+      border-color: var(--nebula);
+      transform:    translateY(-2px);
+    }
+    .card__icon {
+      font-size: 2rem;
+      margin-bottom: .5rem;
+      display: block;
+    }
+    .card__title { color: var(--white); margin-bottom: .4rem; }
+    .card__body  { font-size: .9rem; }
+
+    /* Palette swatch grid */
+    .swatches {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+      margin-bottom: 2rem;
+    }
+
+    .swatch {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .4rem;
+    }
+
+    .swatch__color {
+      width:  56px;
+      height: 56px;
+      border-radius: var(--radius);
+      border: 1px solid #ffffff18;
+      box-shadow: 0 2px 8px #0007;
+    }
+
+    .swatch__label {
+      font-family: var(--font-mono);
+      font-size:   .7rem;
+      color:       var(--stardust);
+      text-align:  center;
+    }
+
+    /* Form */
+    fieldset {
+      border:        1px solid #2a2d45;
+      border-radius: var(--radius);
+      padding:       1.25rem;
+      margin-bottom: 2rem;
+    }
+    legend { color: var(--nebula); padding: 0 .5rem; font-size: .9rem; }
+
+    label {
+      display: block;
+      font-size: .875rem;
+      margin-bottom: .25rem;
+      color: var(--stardust);
+    }
+
+    input[type="text"],
+    input[type="email"],
+    select,
+    textarea {
+      width:         100%;
+      background:    var(--void);
+      color:         var(--white);
+      border:        1px solid #3a3d55;
+      border-radius: 4px;
+      padding:       .5rem .75rem;
+      font-family:   var(--font-sans);
+      font-size:     .9rem;
+      margin-bottom: 1rem;
+      outline:       none;
+      transition:    border-color 150ms;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--nebula);
+    }
+
+    .btn {
+      display:       inline-flex;
+      align-items:   center;
+      gap:           .4em;
+      padding:       .55rem 1.25rem;
+      border:        none;
+      border-radius: var(--radius);
+      font-size:     .9rem;
+      font-weight:   600;
+      cursor:        pointer;
+      transition:    filter 150ms;
+    }
+    .btn:hover { filter: brightness(1.12); }
+    .btn--primary   { background: var(--nebula);  color: var(--void); }
+    .btn--secondary { background: transparent; border: 1px solid var(--nebula); color: var(--nebula); }
+    .btn--danger    { background: var(--pulsar);  color: var(--void); }
+
+    /* Table */
+    .table-wrap { overflow-x: auto; margin-bottom: 2rem; }
+
+    table {
+      width:           100%;
+      border-collapse: collapse;
+      font-size:       .9rem;
+    }
+    th {
+      text-align:   left;
+      padding:      .6rem 1rem;
+      background:   #1a1d30;
+      color:        var(--nebula);
+      border-bottom: 2px solid #2a2d45;
+    }
+    td {
+      padding:      .55rem 1rem;
+      border-bottom: 1px solid #1e2135;
+      font-family:  var(--font-mono);
+      font-size:    .82rem;
+    }
+    tr:hover td { background: #ffffff06; }
+
+    /* Alerts */
+    .alert {
+      padding:       .75rem 1rem;
+      border-left:   4px solid;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      margin-bottom: 1rem;
+      font-size:     .9rem;
+    }
+    .alert--info    { border-color: var(--comet);  background: #82aaff14; }
+    .alert--warn    { border-color: var(--quasar); background: #ffcb6b14; }
+    .alert--danger  { border-color: var(--pulsar); background: #ff537014; }
+    .alert--success { border-color: var(--aurora); background: #89ddff14; }
+
+    /* Progress bar */
+    .progress { height: 6px; background: #1e2135; border-radius: 999px; overflow: hidden; margin-bottom: .5rem; }
+    .progress__fill { height: 100%; border-radius: 999px; transition: width 600ms ease; }
+
+    /* Media query */
+    @media (max-width: 600px) {
+      body  { padding: 1rem; }
+      .grid { grid-template-columns: 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition: none !important; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <div>
+      <h1>Void Space</h1>
+      <p>A deep-space Neovim colorscheme</p>
+    </div>
+    <span class="badge">v1.0.0</span>
+  </header>
+
+  <!-- Palette -->
+  <h2>Palette</h2>
+  <div class="swatches">
+    <div class="swatch">
+      <div class="swatch__color" style="background:#0d0f18"></div>
+      <span class="swatch__label">void<br>#0d0f18</span>
+    </div>
+    <div class="swatch">
+      <div class="swatch__color" style="background:#c792ea"></div>
+      <span class="swatch__label">nebula<br>#c792ea</span>
+    </div>
+    <div class="swatch">
+      <div class="swatch__color" style="background:#89ddff"></div>
+      <span class="swatch__label">aurora<br>#89ddff</span>
+    </div>
+    <div class="swatch">
+      <div class="swatch__color" style="background:#82aaff"></div>
+      <span class="swatch__label">comet<br>#82aaff</span>
+    </div>
+    <div class="swatch">
+      <div class="swatch__color" style="background:#ff5370"></div>
+      <span class="swatch__label">pulsar<br>#ff5370</span>
+    </div>
+    <div class="swatch">
+      <div class="swatch__color" style="background:#ffcb6b"></div>
+      <span class="swatch__label">quasar<br>#ffcb6b</span>
+    </div>
+  </div>
+
+  <!-- Cards -->
+  <h2>Feature Cards</h2>
+  <div class="grid">
+    <article class="card">
+      <span class="card__icon" aria-hidden="true">✦</span>
+      <h3 class="card__title">Tree-sitter</h3>
+      <p class="card__body">First-class semantic highlighting for 30+ languages via <code>nvim-treesitter</code>.</p>
+    </article>
+    <article class="card">
+      <span class="card__icon" aria-hidden="true">⬡</span>
+      <h3 class="card__title">LSP</h3>
+      <p class="card__body">Full <abbr title="Language Server Protocol">LSP</abbr> diagnostic colours — errors, warnings, hints, and inlays.</p>
+    </article>
+    <article class="card">
+      <span class="card__icon" aria-hidden="true">◈</span>
+      <h3 class="card__title">Plugin Support</h3>
+      <p class="card__body">Telescope, Neo-tree, Gitsigns, Which-key, and more — all styled consistently.</p>
+    </article>
+  </div>
+
+  <!-- Code block -->
+  <h2>Code Sample</h2>
+  <pre><code>-- lua/void-space/palette.lua
+local M = {}
+
+M.void    = "#0d0f18"  -- deep space background
+M.nebula  = "#c792ea"  -- purple — keywords &amp; types
+M.aurora  = "#89ddff"  -- cyan   — operators &amp; special
+M.comet   = "#82aaff"  -- blue   — functions &amp; modules
+M.pulsar  = "#ff5370"  -- red    — errors &amp; deleted
+M.quasar  = "#ffcb6b"  -- yellow — strings &amp; warnings
+
+return M</code></pre>
+
+  <!-- Table -->
+  <h2>Star Catalogue</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Class</th>
+          <th>Mass (☉)</th>
+          <th>Luminosity (☉)</th>
+          <th>Distance (ly)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Sirius</td>           <td>A</td> <td>2.10</td>  <td>25.4</td>     <td>8.6</td></tr>
+        <tr><td>Betelgeuse</td>       <td>O</td> <td>20.0</td>  <td>1.0 × 10⁵</td><td>700</td></tr>
+        <tr><td>Proxima Centauri</td> <td>M</td> <td>0.12</td>  <td>0.0017</td>   <td>4.2</td></tr>
+        <tr><td>Sol</td>              <td>G</td> <td>1.00</td>  <td>1.0</td>      <td>0.0</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Form -->
+  <h2>Observation Form</h2>
+  <form>
+    <fieldset>
+      <legend>New Observation</legend>
+
+      <label for="star-name">Star name</label>
+      <input type="text" id="star-name" name="star" placeholder="e.g. Sirius" required />
+
+      <label for="observer">Observer email</label>
+      <input type="email" id="observer" name="observer" placeholder="you@observatory.space" />
+
+      <label for="instrument">Instrument</label>
+      <select id="instrument" name="instrument">
+        <option value="">— select —</option>
+        <option value="refractor">Refractor (80mm)</option>
+        <option value="reflector">Reflector (200mm)</option>
+        <option value="cassegrain">Cassegrain (400mm)</option>
+        <option value="radio">Radio dish</option>
+      </select>
+
+      <label for="notes">Notes</label>
+      <textarea id="notes" name="notes" rows="4" placeholder="Seeing conditions, observations…"></textarea>
+
+      <div style="display:flex;gap:.75rem;flex-wrap:wrap;">
+        <button class="btn btn--primary"   type="submit">&#x2713; Submit</button>
+        <button class="btn btn--secondary" type="reset" >&#x21ba; Reset</button>
+        <button class="btn btn--danger"    type="button">&#x2715; Cancel</button>
+      </div>
+    </fieldset>
+  </form>
+
+  <!-- Alerts -->
+  <h2>Alerts</h2>
+  <div role="alert" class="alert alert--success">&#x2714; Observation recorded successfully.</div>
+  <div role="alert" class="alert alert--info">&#x2139; Next clear-sky window: 2026-04-08 22:00 UTC.</div>
+  <div role="alert" class="alert alert--warn">&#x26a0; High humidity may affect seeing conditions.</div>
+  <div role="alert" class="alert alert--danger">&#x2715; Connection to telescope mount lost.</div>
+
+  <!-- Progress bars -->
+  <h2>Survey Progress</h2>
+  <p>Milky Way survey completion</p>
+  <div class="progress"><div class="progress__fill" style="width:72%;background:var(--nebula)"></div></div>
+  <p>Deep-field imaging</p>
+  <div class="progress"><div class="progress__fill" style="width:38%;background:var(--comet)"></div></div>
+  <p>Spectral classification</p>
+  <div class="progress"><div class="progress__fill" style="width:91%;background:var(--aurora)"></div></div>
+
+  <!-- Footer -->
+  <footer style="margin-top:3rem;border-top:1px solid #2a2d45;padding-top:1rem;font-size:.8rem;color:#4a4d65;">
+    &copy; 2026 void-space.nvim &mdash; MIT Licence &mdash;
+    <a href="https://github.com/vinicius-figueiredo/void-space.nvim">GitHub</a>
+  </footer>
+
+  <script>
+    // Minimal interactivity — animate progress bars on load
+    document.addEventListener('DOMContentLoaded', () => {
+      const fills = document.querySelectorAll('.progress__fill');
+      fills.forEach((el) => {
+        const target = el.style.width;
+        el.style.width = '0';
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => { el.style.width = target; });
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
