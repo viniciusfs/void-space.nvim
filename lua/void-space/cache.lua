@@ -4,6 +4,8 @@ local function cache_dir()
   return vim.fn.stdpath("cache") .. "/void-space"
 end
 
+-- Variant names must not contain the separator tokens (_t, _i, _d followed by digits).
+-- In practice this is safe since variants are controlled internal strings (e.g. "default", "nebula").
 local function cache_key(opts)
   return string.format("%s_t%d_i%d%d_d%d",
     opts.variant,
@@ -38,9 +40,7 @@ function M.clear()
   local matches = vim.fn.glob(pattern)
   if matches == "" then return end
   for _, file in ipairs(split_lines(matches)) do
-    if file ~= "" then
-      vim.fn.delete(file)
-    end
+    vim.fn.delete(file)
   end
 end
 
