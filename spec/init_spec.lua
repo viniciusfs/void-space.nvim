@@ -34,7 +34,7 @@ _G.vim = {
 		glob = function() return "" end,
 		delete = function() end,
 	},
-	log = { levels = { WARN = 2 } },
+	log = { levels = { WARN = 2, INFO = 2 } },
 	notify = function() end,
 	api = {
 		nvim_set_hl = function(ns, group, spec)
