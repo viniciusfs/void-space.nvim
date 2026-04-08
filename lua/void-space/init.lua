@@ -41,14 +41,24 @@ function M.load()
 	vim.o.termguicolors = true
 	vim.g.colors_name = "void-space"
 
-	local palette = require("void-space.palette").get(M.config.variant)
-	local theme = require("void-space.theme")
+	local cache = require("void-space.cache")
+	local cached = cache.load(M.config)
 
-	local highlights = theme.get(palette, M.config)
+	local highlights
 
-	-- Allow user overrides
-	if type(M.config.on_highlights) == "function" then
-		M.config.on_highlights(highlights, palette)
+	if cached then
+		highlights = cached
+	else
+		local palette = require("void-space.palette").get(M.config.variant)
+		local theme = require("void-space.theme")
+		highlights = theme.get(palette, M.config)
+
+		-- Allow user overrides before caching
+		if type(M.config.on_highlights) == "function" then
+			M.config.on_highlights(highlights, palette)
+		end
+
+		cache.save(M.config, highlights)
 	end
 
 	-- Apply all highlights
@@ -57,22 +67,28 @@ function M.load()
 	end
 
 	-- Terminal colors (mapped from canonical palette keys)
-	vim.g.terminal_color_0 = palette.bg
-	vim.g.terminal_color_8 = palette.bg_float
-	vim.g.terminal_color_1 = palette.red
-	vim.g.terminal_color_9 = palette.orange
-	vim.g.terminal_color_2 = palette.green
+	local palette = require("void-space.palette").get(M.config.variant)
+	vim.g.terminal_color_0  = palette.bg
+	vim.g.terminal_color_8  = palette.bg_float
+	vim.g.terminal_color_1  = palette.red
+	vim.g.terminal_color_9  = palette.orange
+	vim.g.terminal_color_2  = palette.green
 	vim.g.terminal_color_10 = palette.green
-	vim.g.terminal_color_3 = palette.yellow
+	vim.g.terminal_color_3  = palette.yellow
 	vim.g.terminal_color_11 = palette.bright_yellow
-	vim.g.terminal_color_4 = palette.blue
+	vim.g.terminal_color_4  = palette.blue
 	vim.g.terminal_color_12 = palette.blue
-	vim.g.terminal_color_5 = palette.purple
+	vim.g.terminal_color_5  = palette.purple
 	vim.g.terminal_color_13 = palette.pink
-	vim.g.terminal_color_6 = palette.cyan
+	vim.g.terminal_color_6  = palette.cyan
 	vim.g.terminal_color_14 = palette.fg_dim
-	vim.g.terminal_color_7 = palette.sel
+	vim.g.terminal_color_7  = palette.sel
 	vim.g.terminal_color_15 = palette.fg
+
+	vim.api.nvim_create_user_command("VoidSpaceClearCache", function()
+		require("void-space.cache").clear()
+		vim.notify("void-space: cache cleared", vim.log.levels.INFO)
+	end, {})
 end
 
 return M

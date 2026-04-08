@@ -24,6 +24,15 @@ _G.vim = {
 		exists = function()
 			return 0
 		end,
+		stdpath = function(what)
+			if what == "cache" then
+				return "/tmp/nvim-test-cache"
+			end
+			return "/tmp"
+		end,
+		mkdir = function() end,
+		glob = function() return "" end,
+		delete = function() end,
 	},
 	log = { levels = { WARN = 2 } },
 	notify = function() end,
@@ -31,6 +40,7 @@ _G.vim = {
 		nvim_set_hl = function(ns, group, spec)
 			table.insert(hl_calls, { ns = ns, group = group, spec = spec })
 		end,
+		nvim_create_user_command = function() end,
 	},
 	o = setmetatable({}, {
 		__newindex = function(_, k, v)
@@ -147,4 +157,53 @@ describe("void-space init", function()
 		assert.equals(false, M.config.transparent)
 		assert.equals(false, M.config.dim_inactive)
 	end)
+
+  describe("cache integration", function()
+    after_each(function()
+      package.loaded["void-space.cache"] = nil
+    end)
+
+    it("applies highlights from cache and skips theme.get() on cache hit", function()
+      local theme_called = false
+      local cached_hl = { Normal = { fg = "#aabbcc", bg = "#112233" } }
+
+      package.loaded["void-space.cache"] = {
+        load = function(_) return cached_hl end,
+        save = function() end,
+        clear = function() end,
+      }
+      local original_theme = package.loaded["void-space.theme"]
+      package.loaded["void-space.theme"] = {
+        get = function() theme_called = true; return {} end,
+      }
+
+      hl_calls = {}
+      M.load()
+
+      package.loaded["void-space.theme"] = original_theme
+      assert.is_false(theme_called, "theme.get() should not be called on cache hit")
+      local found = false
+      for _, call in ipairs(hl_calls) do
+        if call.group == "Normal" and call.spec.fg == "#aabbcc" then
+          found = true; break
+        end
+      end
+      assert.is_true(found, "cached Normal highlight should be applied")
+    end)
+
+    it("calls cache.save() on cache miss", function()
+      local save_called = false
+
+      package.loaded["void-space.cache"] = {
+        load = function(_) return nil end,
+        save = function() save_called = true end,
+        clear = function() end,
+      }
+
+      hl_calls = {}
+      M.load()
+
+      assert.is_true(save_called, "cache.save() should be called on cache miss")
+    end)
+  end)
 end)
