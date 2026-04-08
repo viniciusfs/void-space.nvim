@@ -78,9 +78,6 @@ end
 ---@return table|nil
 function M.load(opts)
   local path = M.path(opts)
-  local f = io.open(path, "r")
-  if not f then return nil end
-  f:close()
   local ok, result = pcall(dofile, path)
   if ok and type(result) == "table" then
     return result
