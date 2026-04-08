@@ -1,5 +1,23 @@
 # Changelog
 
+## [0.2.0] - 2026-04-08
+
+### Performance
+
+- **Disk cache for colorscheme loading** — subsequent loads now take ~0.3–0.8ms instead
+  of ~3–5ms. On first load (or after a config change) the full theme is computed and
+  saved to `~/.cache/nvim/void-space/<key>.lua`. All following loads read the pre-built
+  file directly, skipping all module requires and theme computation.
+
+- Cache is automatically invalidated when any config option changes (`variant`,
+  `transparent`, `italic_comments`, `italic_keywords`, `dim_inactive`). Old cache files
+  are not deleted automatically — run `:VoidSpaceClearCache` to purge them.
+
+### New commands
+
+- `:VoidSpaceClearCache` — removes all cached highlight files and forces regeneration on
+  the next load. Run this after updating the plugin to pick up new highlight groups.
+
 ## [0.1.0] - 2026-04-06
 
 ### Initial public release
