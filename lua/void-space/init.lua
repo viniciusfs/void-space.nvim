@@ -24,7 +24,11 @@ function M.setup(opts)
 	M.config = vim.tbl_deep_extend("force", M.config, opts or {})
 end
 
----Apply all highlights to the current session.
+--- Apply all highlights to the current session.
+--- On first load (cache miss) the full theme is computed, `on_highlights` is called,
+--- and the result is saved to disk. On subsequent loads with the same config the cached
+--- file is used directly and `on_highlights` is NOT called again.
+--- Run :VoidSpaceClearCache after changing `on_highlights` or updating the plugin.
 function M.load()
 	if vim.version().minor < 8 then
 		vim.notify("void-space: Neovim >= 0.8 required", vim.log.levels.WARN)
@@ -41,6 +45,7 @@ function M.load()
 	vim.o.termguicolors = true
 	vim.g.colors_name = "void-space"
 
+	local palette = require("void-space.palette").get(M.config.variant)
 	local cache = require("void-space.cache")
 	local cached = cache.load(M.config)
 
@@ -49,7 +54,6 @@ function M.load()
 	if cached then
 		highlights = cached
 	else
-		local palette = require("void-space.palette").get(M.config.variant)
 		local theme = require("void-space.theme")
 		highlights = theme.get(palette, M.config)
 
@@ -67,7 +71,6 @@ function M.load()
 	end
 
 	-- Terminal colors (mapped from canonical palette keys)
-	local palette = require("void-space.palette").get(M.config.variant)
 	vim.g.terminal_color_0  = palette.bg
 	vim.g.terminal_color_8  = palette.bg_float
 	vim.g.terminal_color_1  = palette.red
@@ -88,7 +91,7 @@ function M.load()
 	vim.api.nvim_create_user_command("VoidSpaceClearCache", function()
 		require("void-space.cache").clear()
 		vim.notify("void-space: cache cleared", vim.log.levels.INFO)
-	end, {})
+	end, { force = true })
 end
 
 return M
