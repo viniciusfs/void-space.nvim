@@ -25,10 +25,11 @@ function M.setup(opts)
 end
 
 --- Apply all highlights to the current session.
---- On first load (cache miss) the full theme is computed, `on_highlights` is called,
---- and the result is saved to disk. On subsequent loads with the same config the cached
---- file is used directly and `on_highlights` is NOT called again.
---- Run :VoidSpaceClearCache after changing `on_highlights` or updating the plugin.
+--- On first load (cache miss) the base theme is computed and saved to disk. On
+--- subsequent loads with the same config the cached file is used directly, skipping
+--- all module requires and theme computation. `on_highlights` is called on every load
+--- (it is fast — just a function call on an already-loaded table).
+--- Run :VoidSpaceClearCache after updating the plugin to force cache regeneration.
 function M.load()
 	if vim.version().minor < 8 then
 		vim.notify("void-space: Neovim >= 0.8 required", vim.log.levels.WARN)
@@ -56,13 +57,12 @@ function M.load()
 	else
 		local theme = require("void-space.theme")
 		highlights = theme.get(palette, M.config)
-
-		-- Allow user overrides before caching
-		if type(M.config.on_highlights) == "function" then
-			M.config.on_highlights(highlights, palette)
-		end
-
 		cache.save(M.config, highlights)
+	end
+
+	-- Allow user overrides (always applied, not baked into cache)
+	if type(M.config.on_highlights) == "function" then
+		M.config.on_highlights(highlights, palette)
 	end
 
 	-- Apply all highlights

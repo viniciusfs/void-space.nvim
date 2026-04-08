@@ -79,7 +79,7 @@ end
 function M.load(opts)
   local path = M.path(opts)
   local ok, result = pcall(dofile, path)
-  if ok and type(result) == "table" then
+  if ok and type(result) == "table" and next(result) ~= nil then
     return result
   end
   return nil

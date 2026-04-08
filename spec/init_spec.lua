@@ -121,12 +121,19 @@ describe("void-space init", function()
 	end)
 
 	it("on_highlights callback can mutate highlights before application", function()
+		-- Stub cache to miss so on_highlights is always exercised regardless of disk state
+		package.loaded["void-space.cache"] = {
+			load = function(_) return nil end,
+			save = function() end,
+			clear = function() end,
+		}
 		M.setup({
 			on_highlights = function(hl, _)
 				hl.Normal = { fg = "#ffffff", bg = "#000000" }
 			end,
 		})
 		M.load()
+		package.loaded["void-space.cache"] = nil
 		local normal_spec
 		for _, call in ipairs(hl_calls) do
 			if call.group == "Normal" then

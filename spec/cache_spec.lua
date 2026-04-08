@@ -95,6 +95,19 @@ describe("void-space.cache", function()
       assert.is_nil(result)
     end)
 
+    it("load() returns nil for a corrupt/empty cache file", function()
+      local f = io.open(tmp_path, "w")
+      f:write("return {}")
+      f:close()
+
+      local original_path = cache.path
+      cache.path = function(_) return tmp_path end
+      local result = cache.load({})
+      cache.path = original_path
+
+      assert.is_nil(result)
+    end)
+
     it("save() writes a loadable file and load() round-trips the table", function()
       local highlights = {
         Normal    = { fg = "#c8cfe8", bg = "#0d1220" },
