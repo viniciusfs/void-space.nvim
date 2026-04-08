@@ -44,4 +44,48 @@ function M.clear()
   end
 end
 
+local function serialize(hl)
+  local lines = { "-- void-space cache -- gerado automaticamente, nao editar", "return {" }
+  for group, spec in pairs(hl) do
+    lines[#lines + 1] = string.format("  [%q] = {", group)
+    for k, v in pairs(spec) do
+      if type(v) == "string" then
+        lines[#lines + 1] = string.format("    %s = %q,", k, v)
+      elseif type(v) == "boolean" then
+        lines[#lines + 1] = string.format("    %s = %s,", k, tostring(v))
+      end
+    end
+    lines[#lines + 1] = "  },"
+  end
+  lines[#lines + 1] = "}"
+  return table.concat(lines, "\n")
+end
+
+---Serialize highlights table to disk.
+---@param opts table VoidSpaceConfig
+---@param highlights table group → spec
+function M.save(opts, highlights)
+  local path = M.path(opts)
+  vim.fn.mkdir(cache_dir(), "p")
+  local f = io.open(path, "w")
+  if not f then return end
+  f:write(serialize(highlights))
+  f:close()
+end
+
+---Load cached highlights from disk. Returns nil if cache miss.
+---@param opts table VoidSpaceConfig
+---@return table|nil
+function M.load(opts)
+  local path = M.path(opts)
+  local f = io.open(path, "r")
+  if not f then return nil end
+  f:close()
+  local ok, result = pcall(dofile, path)
+  if ok and type(result) == "table" then
+    return result
+  end
+  return nil
+end
+
 return M

@@ -74,4 +74,49 @@ describe("void-space.cache", function()
       assert.equals(0, #deleted)
     end)
   end)
+
+  describe("save() and load()", function()
+    local tmp_path
+
+    before_each(function()
+      tmp_path = os.tmpname() .. ".lua"
+      -- override path() to use a controlled temp file
+      vim.fn.mkdir = function() end
+    end)
+
+    after_each(function()
+      os.remove(tmp_path)
+    end)
+
+    it("load() returns nil when file does not exist", function()
+      local opts = { variant = "nope", transparent = false, italic_comments = false, italic_keywords = false, dim_inactive = false }
+      -- path() will point to a nonexistent file in /tmp/void-space-test-cache/
+      local result = cache.load(opts)
+      assert.is_nil(result)
+    end)
+
+    it("save() writes a loadable file and load() round-trips the table", function()
+      local highlights = {
+        Normal    = { fg = "#c8cfe8", bg = "#0d1220" },
+        Comment   = { fg = "#5566aa", italic = true },
+        ["@keyword"] = { fg = "#8899cc", bold = false },
+      }
+
+      -- Write to a known temp path by monkey-patching path()
+      local original_path = cache.path
+      cache.path = function(_) return tmp_path end
+
+      cache.save({}, highlights)
+      local loaded = cache.load({})
+
+      cache.path = original_path
+
+      assert.is_not_nil(loaded)
+      assert.equals("#c8cfe8", loaded.Normal.fg)
+      assert.equals("#0d1220", loaded.Normal.bg)
+      assert.equals("#5566aa", loaded.Comment.fg)
+      assert.is_true(loaded.Comment.italic)
+      assert.is_false(loaded["@keyword"].bold)
+    end)
+  end)
 end)
