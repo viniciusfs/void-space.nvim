@@ -212,5 +212,46 @@ describe("void-space init", function()
 
       assert.is_true(save_called, "cache.save() should be called on cache miss")
     end)
+
+    it("dev=true skips cache.load() and always calls theme.get()", function()
+      local cache_load_called = false
+      local theme_called = false
+
+      package.loaded["void-space.cache"] = {
+        load = function(_) cache_load_called = true; return { Normal = { fg = "#aabbcc" } } end,
+        save = function() end,
+        clear = function() end,
+      }
+      local original_theme = package.loaded["void-space.theme"]
+      package.loaded["void-space.theme"] = {
+        get = function() theme_called = true; return { Normal = { fg = "#ffffff" } } end,
+      }
+
+      M.config.dev = true
+      hl_calls = {}
+      M.load()
+      M.config.dev = false
+
+      package.loaded["void-space.theme"] = original_theme
+      assert.is_false(cache_load_called, "cache.load() should not be called when dev=true")
+      assert.is_true(theme_called, "theme.get() should always be called when dev=true")
+    end)
+
+    it("dev=true skips cache.save()", function()
+      local save_called = false
+
+      package.loaded["void-space.cache"] = {
+        load = function(_) return nil end,
+        save = function() save_called = true end,
+        clear = function() end,
+      }
+
+      M.config.dev = true
+      hl_calls = {}
+      M.load()
+      M.config.dev = false
+
+      assert.is_false(save_called, "cache.save() should not be called when dev=true")
+    end)
   end)
 end)
