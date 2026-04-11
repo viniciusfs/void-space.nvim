@@ -7,6 +7,7 @@ local M = {}
 ---@field transparent      boolean  Transparent background (default: false)
 ---@field dim_inactive     boolean  Dim inactive windows (default: false)
 ---@field on_highlights    fun(hl: table, c: table)|nil  Override highlights after load
+---@field dev              boolean  Disable disk cache for development (default: false)
 
 ---@type VoidSpaceConfig
 M.config = {
@@ -16,6 +17,7 @@ M.config = {
 	transparent = false,
 	dim_inactive = false,
 	on_highlights = nil,
+	dev = false,
 }
 
 ---Configure the color scheme (call before load / colorscheme command).
@@ -48,16 +50,22 @@ function M.load()
 
 	local palette = require("void-space.palette").get(M.config.variant)
 	local cache = require("void-space.cache")
-	local cached = cache.load(M.config)
 
 	local highlights
 
-	if cached then
-		highlights = cached
-	else
+	if not M.config.dev then
+		local cached = cache.load(M.config)
+		if cached then
+			highlights = cached
+		end
+	end
+
+	if not highlights then
 		local theme = require("void-space.theme")
 		highlights = theme.get(palette, M.config)
-		cache.save(M.config, highlights)
+		if not M.config.dev then
+			cache.save(M.config, highlights)
+		end
 	end
 
 	-- Allow user overrides (always applied, not baked into cache)

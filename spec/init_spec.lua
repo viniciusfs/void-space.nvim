@@ -77,6 +77,7 @@ describe("void-space init", function()
 			transparent = false,
 			dim_inactive = false,
 			on_highlights = nil,
+			dev = false,
 		}
 	end)
 
