@@ -13,32 +13,32 @@ vs.normal = {
 
 vs.insert = {
 	a = { fg = c.bg, bg = c.green, gui = "bold" },
-	b = { fg = c.fg, bg = c.sel },
-	c = { fg = c.fg, bg = c.bg_float },
+	b = { fg = c.fg, bg = c.bg_float },
+	c = { fg = c.fg, bg = c.bg },
 }
 
 vs.visual = {
 	a = { fg = c.bg, bg = c.purple, gui = "bold" },
-	b = { fg = c.fg, bg = c.sel },
-	c = { fg = c.fg, bg = c.bg_float },
+	b = { fg = c.fg, bg = c.bg_float },
+	c = { fg = c.fg, bg = c.bg },
 }
 
 vs.replace = {
 	a = { fg = c.bg, bg = c.red, gui = "bold" },
-	b = { fg = c.fg, bg = c.sel },
-	c = { fg = c.fg, bg = c.bg_float },
+	b = { fg = c.fg, bg = c.bg_float },
+	c = { fg = c.fg, bg = c.bg },
 }
 
 vs.command = {
 	a = { fg = c.bg, bg = c.yellow, gui = "bold" },
-	b = { fg = c.fg, bg = c.sel },
-	c = { fg = c.fg, bg = c.bg_float },
+	b = { fg = c.fg, bg = c.bg_float },
+	c = { fg = c.fg, bg = c.bg },
 }
 
 vs.terminal = {
 	a = { fg = c.bg, bg = c.cyan, gui = "bold" },
-	b = { fg = c.fg, bg = c.sel },
-	c = { fg = c.fg, bg = c.bg_float },
+	b = { fg = c.fg, bg = c.bg_float },
+	c = { fg = c.fg, bg = c.bg },
 }
 
 vs.inactive = {
