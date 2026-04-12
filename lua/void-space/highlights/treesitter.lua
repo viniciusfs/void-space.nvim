@@ -10,7 +10,7 @@ function M.get(c, opts)
 	hl["@variable.builtin"] = { fg = c.builtin }
 	hl["@variable.parameter"] = { fg = c.fg }
 	hl["@variable.parameter.builtin"] = { fg = c.builtin }
-	hl["@variable.member"] = { fg = c.type_name }
+	hl["@variable.member"] = { fg = c.fg } -- member access is not a type; fg reduces noise and avoids confusion with type_name (cyan)
 
 	-- Constants
 	hl["@constant"] = { link = "Constant" }
@@ -114,7 +114,7 @@ function M.get(c, opts)
 	hl["@markup.link.url"] = { fg = c.cyan, underline = true }
 	hl["@markup.raw"] = { fg = c.string_lit }
 	hl["@markup.raw.block"] = { fg = c.string_lit }
-	hl["@markup.list"] = { fg = c.constant }
+	hl["@markup.list"] = { fg = c.fg_dim } -- list markers are structural punctuation; fg_dim reduces noise vs constant (orange)
 	hl["@markup.list.checked"] = { fg = c.string_lit }
 	hl["@markup.list.unchecked"] = { fg = c.comment }
 
