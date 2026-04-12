@@ -37,7 +37,7 @@
        r="50%">
       <stop
          offset="0%"
-         stop-color="#9e87c5"
+         stop-color="#9b88d0"
          stop-opacity="0.18"
          id="stop2" />
       <stop
@@ -63,7 +63,7 @@
          id="stop9" />
       <stop
          offset="100%"
-         stop-color="#9e87c5"
+         stop-color="#9b88d0"
          stop-opacity="0"
          id="stop11" />
     </radialGradient>
@@ -291,7 +291,7 @@
      cx="340"
      cy="170"
      r="58"
-     fill="#9e87c5"
+     fill="#9b88d0"
      opacity="0.12"
      style="fill:rgb(143, 114, 191);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.12;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"
      id="circle70" />
@@ -341,10 +341,10 @@
      cy="170"
      r="58"
      fill="none"
-     stroke="#9e87c5"
+     stroke="#9b88d0"
      stroke-width="1.2"
      opacity="0.5"
-     style="fill:none;stroke:#9e87c5;color:rgb(255, 255, 255);stroke-width:1.2px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto;stroke-opacity:1"
+     style="fill:none;stroke:#9b88d0;color:rgb(255, 255, 255);stroke-width:1.2px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto;stroke-opacity:1"
      id="circle80" />
   <!-- Small moon -->
   <ellipse
@@ -387,7 +387,7 @@
      stroke="#56adb7"
      stroke-width="0.8"
      opacity="0.5"
-     style="fill:none;stroke:#59abb4;color:rgb(255, 255, 255);stroke-width:0.8px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto;stroke-opacity:1"
+     style="fill:none;stroke:#4ab5c4;color:rgb(255, 255, 255);stroke-width:0.8px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto;stroke-opacity:1"
      id="circle90" />
   <!-- Moon highlight -->
   <ellipse
@@ -504,9 +504,9 @@
      width="16"
      height="4"
      rx="2"
-     fill="#94b592"
+     fill="#8fb98c"
      opacity="0.85"
-     style="fill:#94b592;stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.85;font-family:'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto;fill-opacity:1"
+     style="fill:#8fb98c;stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.85;font-family:'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto;fill-opacity:1"
      id="rect122" />
   <rect
      x="298"
@@ -534,9 +534,9 @@
      width="16"
      height="4"
      rx="2"
-     fill="#9e87c5"
+     fill="#9b88d0"
      opacity="0.85"
-     style="fill:#9e87c5;stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.85;font-family:'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto;fill-opacity:1"
+     style="fill:#9b88d0;stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.85;font-family:'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto;fill-opacity:1"
      id="rect128" />
   <rect
      x="358"
@@ -566,7 +566,7 @@
      rx="2"
      fill="#51617d"
      opacity="0.85"
-     style="fill:#52627f;stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.85;font-family:'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto;fill-opacity:1"
+     style="fill:#5f7090;stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.85;font-family:'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto;fill-opacity:1"
      id="rect134" />
   <rect
      x="418"

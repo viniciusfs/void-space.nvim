@@ -24,16 +24,16 @@ I used deep-space for years and when I migrated from vim to Neovim I found that 
 | ![bg](assets/swatches/default/bg.png)                       | `#1a1f28` | 219° 21% 13% | Black Russian #2 | `bg`            | Main background                   |
 | ![bg_float](assets/swatches/default/bg_float.png)           | `#232936` | 221° 21% 17% | Midnight Express | `bg_float`      | Cursor line / popup background    |
 | ![sel](assets/swatches/default/sel.png)                     | `#323c4d` | 218° 21% 25% | Cloud Burst      | `sel`           | Selection / border                |
-| ![fg_dim](assets/swatches/default/fg_dim.png)               | `#52627f` | 219° 22% 41% | Chambray         | `fg_dim`        | Comments / dimmed text            |
+| ![fg_dim](assets/swatches/default/fg_dim.png)               | `#5f7090` | 219° 20% 47% | Waikawa Gray     | `fg_dim`        | Comments / dimmed text            |
 | ![fg](assets/swatches/default/fg.png)                       | `#99a7be` | 217° 22% 67% | Rock Blue        | `fg`            | Main foreground, operators        |
 | ![red](assets/swatches/default/red.png)                     | `#c68b8f` | 356° 34% 66% | Tapestry         | `red`           | Errors                            |
-| ![green](assets/swatches/default/green.png)                 | `#94b592` | 117° 19% 64% | Amulet           | `green`         | Strings / added                   |
+| ![green](assets/swatches/default/green.png)                 | `#8fb98c` | 116° 24% 64% | Envy             | `green`         | Strings / added                   |
 | ![yellow](assets/swatches/default/yellow.png)               | `#b39b64` |  42° 34% 55% | Barley Corn      | `yellow`        | Special                           |
 | ![blue](assets/swatches/default/blue.png)                   | `#618bc2` | 214° 44% 57% | Danube           | `blue`          | Keywords / built-ins              |
-| ![purple](assets/swatches/default/purple.png)               | `#9e87c5` | 262° 35% 65% | Lilac Bush       | `purple`        | Functions / hints                 |
-| ![cyan](assets/swatches/default/cyan.png)                   | `#59abb4` | 186° 38% 53% | Fountain Blue    | `cyan`          | Type names                        |
+| ![purple](assets/swatches/default/purple.png)               | `#9b88d0` | 256° 43% 67% | Cold Purple      | `purple`        | Functions / hints                 |
+| ![cyan](assets/swatches/default/cyan.png)                   | `#4ab5c4` | 187° 51% 53% | Pelorous         | `cyan`          | Type names                        |
 | ![orange](assets/swatches/default/orange.png)               | `#ba8873` |  18° 34% 59% | Medium Wood      | `orange`        | Constants                         |
-| ![pink](assets/swatches/default/pink.png)                   | `#c47ec4` | 300° 37% 63% | Orchid           | `pink`          | Match paren / attention           |
+| ![pink](assets/swatches/default/pink.png)                   | `#cc7dd0` | 297° 47% 65% | Orchid           | `pink`          | Match paren / attention           |
 | ![bright_yellow](assets/swatches/default/bright_yellow.png) | `#d5ad75` |  35° 53% 65% | Putty            | `bright_yellow` | Emphasis (deep-space terminal 11) |
 
 ## Requirements

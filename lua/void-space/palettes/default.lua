@@ -9,16 +9,16 @@ local _black_russian1 = "#141820"
 local _black_russian2 = "#1a1f28"
 local _midnight_express = "#232936"
 local _cloud_brust = "#323c4d"
-local _chambray = "#52627f"
+local _waikawa_gray = "#5f7090"
 local _rock_blue = "#99a7be"
 local _tapestry = "#c68b8f"
-local _amulet = "#94b592"
+local _envy = "#8fb98c"
 local _barley_corn = "#b39b64"
 local _danube = "#618bc2"
-local _lilac_bush = "#9e87c5"
-local _fountain_blue = "#59abb4"
+local _cold_purple = "#9b88d0"
+local _pelorous = "#4ab5c4"
 local _medium_wood = "#ba8873"
-local _orchid = "#c47ec4"
+local _orchid = "#cc7dd0"
 local _putty = "#d5ad75"
 
 -- -------------------------
@@ -29,16 +29,16 @@ M.bg_dark = _black_russian1
 M.bg = _black_russian2
 M.bg_float = _midnight_express
 M.sel = _cloud_brust
-M.fg_dim = _chambray
+M.fg_dim = _waikawa_gray
 M.fg = _rock_blue
 
 -- Accent colors
-M.green = _amulet
+M.green = _envy
 M.yellow = _barley_corn
 M.red = _tapestry
-M.purple = _lilac_bush
+M.purple = _cold_purple
 M.blue = _danube
-M.cyan = _fountain_blue
+M.cyan = _pelorous
 M.pink = _orchid
 M.orange = _medium_wood
 
