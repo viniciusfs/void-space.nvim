@@ -101,3 +101,56 @@ The following aliases point to the accent colors above. Changing an alias does n
 | `warning` | `yellow` | Diagnostic warnings |
 | `info` | `cyan` | Diagnostic info |
 | `hint` | `purple` | Diagnostic hints |
+
+---
+
+## Variant guide
+
+A variant is a file at `lua/void-space/palettes/<name>.lua` that exports the same interface as the `default` palette.
+
+### Required keys
+
+Every palette must export exactly these keys (in any order):
+
+```lua
+-- Backgrounds & foregrounds
+bg_dark, bg, bg_float, sel, fg_dim, fg
+
+-- Accents
+red, green, yellow, blue, purple, cyan, orange, pink, bright_yellow
+
+-- Syntax aliases
+comment, keyword, func, type_name, string_lit, constant,
+operator, type, builtin, special
+
+-- Diagnostics
+error, warning, info, hint
+
+-- Special
+none  -- must always be the string "NONE"
+```
+
+### What can vary
+
+- H, S, L of any accent (but respect semantic intent — do not change `blue` to H=0°)
+- L of the background tones (keep the monotonically increasing progression from `bg_dark` to `fg`)
+
+### What must not change
+
+- Remove required keys
+- Use hardcoded hex strings outside of `lua/void-space/palettes/` — every color must be a local variable first
+- Break the monotonically increasing L progression of the background stack
+- Assign `none` any value other than `"NONE"`
+
+### How to test
+
+```bash
+# Structural tests (key coverage, hex format, aliases)
+make test
+
+# Visual inspection of generated swatches
+make swatches
+# Open assets/swatches/<variant>/ and verify perceptual consistency
+```
+
+Tests in `spec/palette_spec.lua` validate automatically: hex format, required keys, and aliases. A PR for a new variant is only ready when `make test` passes with zero failures.
