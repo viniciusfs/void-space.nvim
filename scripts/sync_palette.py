@@ -43,6 +43,42 @@ def parse_lua_palette(path: Path) -> dict[str, str]:
     return colors
 
 
+# ── Template rendering ────────────────────────────────────────────────────────
+
+_PLACEHOLDER_RE = re.compile(r"\{\{(\w+)\}\}")
+
+TEMPLATE_TARGETS = [
+    ("void-space-alacritty.toml.tmpl",   ROOT / "extras" / "void-space-alacritty.toml"),
+    ("void-space-terminator.conf.tmpl",  ROOT / "extras" / "void-space-terminator.conf"),
+    ("void-space-tmux.conf.tmpl",        ROOT / "extras" / "void-space-tmux.conf"),
+]
+
+
+def render_templates(colors: dict[str, str]) -> None:
+    """Render each template in scripts/templates/ and write to extras/."""
+    tmpl_dir = ROOT / "scripts" / "templates"
+    for tmpl_name, dest in TEMPLATE_TARGETS:
+        tmpl_path = tmpl_dir / tmpl_name
+        text = tmpl_path.read_text()
+
+        # Validate all placeholders resolve before writing anything
+        missing = [
+            m.group(1)
+            for m in _PLACEHOLDER_RE.finditer(text)
+            if m.group(1) not in colors
+        ]
+        if missing:
+            print(
+                f"error: {tmpl_name} references unknown palette keys: {missing}",
+                file=sys.stderr,
+            )
+            sys.exit(1)
+
+        rendered = _PLACEHOLDER_RE.sub(lambda m: colors[m.group(1)], text)
+        dest.write_text(rendered)
+        print(f"  {dest.relative_to(ROOT)}  updated")
+
+
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 def main() -> None:
@@ -53,7 +89,10 @@ def main() -> None:
 
     colors = parse_lua_palette(palette_path)
     print("Syncing palette 'default'...\n")
-    print("Done.")
+
+    render_templates(colors)
+
+    print("\nDone.")
 
 
 if __name__ == "__main__":
