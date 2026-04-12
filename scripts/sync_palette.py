@@ -79,6 +79,46 @@ def render_templates(colors: dict[str, str]) -> None:
         print(f"  {dest.relative_to(ROOT)}  updated")
 
 
+# ── palette_default.svg generation ───────────────────────────────────────────
+
+def generate_palette_svg(colors: dict[str, str]) -> None:
+    """Regenerate assets/palette_default.svg from current palette colors."""
+    dest = ROOT / "assets" / "palette_default.svg"
+
+    # Row 1: accent colors (left to right)
+    row1_keys = ["red", "orange", "yellow", "bright_yellow", "green", "cyan", "blue", "purple", "pink"]
+    # Row 2: background/foreground stack with a visual gap between darks and lights
+    row2_keys_left  = ["bg_dark", "bg", "bg_float"]   # x=25, 89, 153
+    row2_keys_right = ["sel", "fg_dim", "fg"]          # x=409, 473, 537
+
+    rect_size = 64
+    x_start = 25
+    y1 = 25   # row 1 top
+    y2 = 106  # row 2 top
+
+    def rect(x: int, y: int, color: str) -> str:
+        return f'  <rect x="{x}" y="{y}" width="{rect_size}" height="{rect_size}" fill="{color}" />'
+
+    rects = []
+    for i, key in enumerate(row1_keys):
+        rects.append(rect(x_start + i * rect_size, y1, colors[key]))
+    for i, key in enumerate(row2_keys_left):
+        rects.append(rect(x_start + i * rect_size, y2, colors[key]))
+    for i, key in enumerate(row2_keys_right):
+        rects.append(rect(409 + i * rect_size, y2, colors[key]))
+
+    svg = (
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<svg width="626" height="195" viewBox="0 0 626 195" xmlns="http://www.w3.org/2000/svg">\n'
+        f'  <rect width="626" height="195" fill="{colors["bg"]}" />\n'
+        + "\n".join(rects)
+        + "\n</svg>\n"
+    )
+
+    dest.write_text(svg)
+    print(f"  {dest.relative_to(ROOT)}  regenerated")
+
+
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 def main() -> None:
@@ -91,6 +131,7 @@ def main() -> None:
     print("Syncing palette 'default'...\n")
 
     render_templates(colors)
+    generate_palette_svg(colors)
 
     print("\nDone.")
 
