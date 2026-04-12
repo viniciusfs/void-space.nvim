@@ -18,7 +18,7 @@ function M.get(c, opts)
 	hl["@constant.macro"] = { link = "Constant" }
 
 	-- Modules / namespaces
-	hl["@module"] = { fg = c.purple }
+	hl["@module"] = { fg = c.type } -- namespaces/modules are type-like; aligns with @lsp.type.namespace
 	hl["@module.builtin"] = { fg = c.builtin, bold = true }
 	hl["@label"] = { fg = c.keyword }
 

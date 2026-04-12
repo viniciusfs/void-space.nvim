@@ -7,8 +7,8 @@ function M.get(c, opts)
 	hl.LspReferenceRead = { bg = c.sel }
 	hl.LspReferenceWrite = { bg = c.sel, bold = true }
 	hl.LspSignatureActiveParameter = { fg = c.yellow, bold = true }
-	hl.LspInlayHint = { fg = c.fg_dim, bg = c.bg_float, italic = true }
-	hl.LspCodeLens = { fg = c.fg_dim, italic = true }
+	hl.LspInlayHint = { fg = c.fg_dim, bg = c.bg_float, italic = opts.italic_comments }
+	hl.LspCodeLens = { fg = c.fg_dim, italic = opts.italic_comments }
 	hl.LspCodeLensSeparator = { fg = c.sel }
 
 	-- Semantic tokens
