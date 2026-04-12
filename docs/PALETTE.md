@@ -69,17 +69,17 @@ The small H (±2°) and S (±2%) variations are rounding artifacts of the hex ap
 
 ### Accent palette
 
-| Key | Hex | HSL | CSS name | Semantic roles | Hue justification |
-|-----|-----|-----|----------|----------------|-------------------|
-| `red` | `#c68b8f` | H=356 S=34% L=66% | Tapestry | `error`, `deleted` | H≈0° (classic error red), desaturated to avoid eye strain in long sessions |
-| `green` | `#8fb98c` | H=116 S=24% L=64% | Envy | `string_lit`, `added` | H=116° anchors in cool green — distinct from yellow without competing with cyan |
-| `yellow` | `#b39b64` | H=42 S=34% L=55% | Barley Corn | `special`, `warning` | H=42° earthy amber — warm without being orange, evokes stellar dust |
-| `blue` | `#618bc2` | H=214 S=44% L=57% | Danube | `keyword` | H=214° aligns with the bg stack — keywords belong to the space, not aggressive standouts |
-| `purple` | `#9b88d0` | H=256 S=43% L=67% | Cold Purple | `func`, `builtin`, `hint` | H=256° differentiates functions from keywords while staying in the cool family |
-| `cyan` | `#4ab5c4` | H=187 S=51% L=53% | Pelorous | `type_name`, `info` | H=187° cool turquoise, distinct from blue (H=214°) — among the highest-saturation accents, reserved for types |
-| `orange` | `#ba8873` | H=18 S=34% L=59% | Medium Wood | `constant` | H=18° warm and earthy — contrasts with the overall coolness, signals immutable values |
-| `pink` | `#cc7dd0` | H=297 S=47% L=65% | Orchid | `match paren`, `attention` | H=297° soft magenta — alert without being error, distinct from purple (H=256°) |
-| `bright_yellow` | `#d5ad75` | H=35 S=53% L=65% | Putty | `emphasis`, `terminal_color_11` | Same H family as `yellow` (≈35–42°), higher L — emphasis within the same hue family |
+| | Key | Hex | HSL | CSS name | Semantic roles | Hue justification |
+|--|-----|-----|-----|----------|----------------|-------------------|
+| ![red](../assets/swatches/default/red.png) | `red` | `#c68b8f` | H=356 S=34% L=66% | Tapestry | `error`, `deleted` | H≈0° (classic error red), desaturated to avoid eye strain in long sessions |
+| ![green](../assets/swatches/default/green.png) | `green` | `#8fb98c` | H=116 S=24% L=64% | Envy | `string_lit`, `added` | H=116° anchors in cool green — distinct from yellow without competing with cyan |
+| ![yellow](../assets/swatches/default/yellow.png) | `yellow` | `#b39b64` | H=42 S=34% L=55% | Barley Corn | `special`, `warning` | H=42° earthy amber — warm without being orange, evokes stellar dust |
+| ![blue](../assets/swatches/default/blue.png) | `blue` | `#618bc2` | H=214 S=44% L=57% | Danube | `keyword` | H=214° aligns with the bg stack — keywords belong to the space, not aggressive standouts |
+| ![purple](../assets/swatches/default/purple.png) | `purple` | `#9b88d0` | H=256 S=43% L=67% | Cold Purple | `func`, `builtin`, `hint` | H=256° differentiates functions from keywords while staying in the cool family |
+| ![cyan](../assets/swatches/default/cyan.png) | `cyan` | `#4ab5c4` | H=187 S=51% L=53% | Pelorous | `type_name`, `info` | H=187° cool turquoise, distinct from blue (H=214°) — among the highest-saturation accents, reserved for types |
+| ![orange](../assets/swatches/default/orange.png) | `orange` | `#ba8873` | H=18 S=34% L=59% | Medium Wood | `constant` | H=18° warm and earthy — contrasts with the overall coolness, signals immutable values |
+| ![pink](../assets/swatches/default/pink.png) | `pink` | `#cc7dd0` | H=297 S=47% L=65% | Orchid | `match paren`, `attention` | H=297° soft magenta — alert without being error, distinct from purple (H=256°) |
+| ![bright_yellow](../assets/swatches/default/bright_yellow.png) | `bright_yellow` | `#d5ad75` | H=35 S=53% L=65% | Putty | `emphasis`, `terminal_color_11` | Same H family as `yellow` (≈35–42°), higher L — emphasis within the same hue family |
 
 ### Syntax aliases
 

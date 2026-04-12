@@ -2,11 +2,7 @@
   <img src="assets/void_space_logo.svg" width="894" >
 </p>
 
-A dark color scheme for Neovim based on [vim-deep-space](https://github.com/tyrannicaltoucan/vim-deep-space) palette. Original low contrast and dark navy palette extended with full TreeSitter, LSP, diagnostics, and [LazyVim](https://wwww.lazyvim.org/) plugin coverage.
-
-## Motivation
-
-I used deep-space for years and when I migrated from vim to Neovim I found that deep-space missed a lot of highlights for wide used plugins. I started void-space to fill the gaps I found on deep-space running on my LazyVim setup and also add personal touches.
+A dark Neovim colorscheme inspired by deep space and nebula texture. Vivid but sober, low contrast by design. Full TreeSitter, LSP, diagnostics, and [LazyVim](https://wwww.lazyvim.org/) plugin coverage.
 
 ## Examples
 
@@ -18,23 +14,12 @@ I used deep-space for years and when I migrated from vim to Neovim I found that 
 
 ## Palette
 
-| Swatch | Hex | HSL | Color Name | Semantic | Role |
-|--------|-----|-----|------------|----------|------|
-| ![bg_dark](assets/swatches/default/bg_dark.png)             | `#141820` | 220° 23% 10% | Black Russian #1 | `bg_dark`       | Darkest bg (borders, inactive)    |
-| ![bg](assets/swatches/default/bg.png)                       | `#1a1f28` | 219° 21% 13% | Black Russian #2 | `bg`            | Main background                   |
-| ![bg_float](assets/swatches/default/bg_float.png)           | `#232936` | 221° 21% 17% | Midnight Express | `bg_float`      | Cursor line / popup background    |
-| ![sel](assets/swatches/default/sel.png)                     | `#323c4d` | 218° 21% 25% | Cloud Burst      | `sel`           | Selection / border                |
-| ![fg_dim](assets/swatches/default/fg_dim.png)               | `#5f7090` | 219° 20% 47% | Waikawa Gray     | `fg_dim`        | Comments / dimmed text            |
-| ![fg](assets/swatches/default/fg.png)                       | `#99a7be` | 217° 22% 67% | Rock Blue        | `fg`            | Main foreground, operators        |
-| ![red](assets/swatches/default/red.png)                     | `#c68b8f` | 356° 34% 66% | Tapestry         | `red`           | Errors                            |
-| ![green](assets/swatches/default/green.png)                 | `#8fb98c` | 116° 24% 64% | Envy             | `green`         | Strings / added                   |
-| ![yellow](assets/swatches/default/yellow.png)               | `#b39b64` |  42° 34% 55% | Barley Corn      | `yellow`        | Special                           |
-| ![blue](assets/swatches/default/blue.png)                   | `#618bc2` | 214° 44% 57% | Danube           | `blue`          | Keywords / built-ins              |
-| ![purple](assets/swatches/default/purple.png)               | `#9b88d0` | 256° 43% 67% | Cold Purple      | `purple`        | Functions / hints                 |
-| ![cyan](assets/swatches/default/cyan.png)                   | `#4ab5c4` | 187° 51% 53% | Pelorous         | `cyan`          | Type names                        |
-| ![orange](assets/swatches/default/orange.png)               | `#ba8873` |  18° 34% 59% | Medium Wood      | `orange`        | Constants                         |
-| ![pink](assets/swatches/default/pink.png)                   | `#cc7dd0` | 297° 47% 65% | Orchid           | `pink`          | Match paren / attention           |
-| ![bright_yellow](assets/swatches/default/bright_yellow.png) | `#d5ad75` |  35° 53% 65% | Putty            | `bright_yellow` | Emphasis (deep-space terminal 11) |
+See [docs/PALETTE.md](docs/PALETTE.md) for the full palette reference — identity, HSL principles, and color justifications.
+
+<p align="center">
+<img src="assets/swatches/default/bg_dark.png" title="bg_dark"> <img src="assets/swatches/default/bg.png" title="bg"> <img src="assets/swatches/default/bg_float.png" title="bg_float"> <img src="assets/swatches/default/sel.png" title="sel"> <img src="assets/swatches/default/fg_dim.png" title="fg_dim"> <img src="assets/swatches/default/fg.png" title="fg"><br>
+<img src="assets/swatches/default/red.png" title="red"> <img src="assets/swatches/default/green.png" title="green"> <img src="assets/swatches/default/yellow.png" title="yellow"> <img src="assets/swatches/default/blue.png" title="blue"> <img src="assets/swatches/default/purple.png" title="purple"> <img src="assets/swatches/default/cyan.png" title="cyan"> <img src="assets/swatches/default/orange.png" title="orange"> <img src="assets/swatches/default/pink.png" title="pink"> <img src="assets/swatches/default/bright_yellow.png" title="bright_yellow">
+</p>
 
 ## Requirements
 
