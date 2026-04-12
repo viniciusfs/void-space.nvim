@@ -119,6 +119,61 @@ def generate_palette_svg(colors: dict[str, str]) -> None:
     print(f"  {dest.relative_to(ROOT)}  regenerated")
 
 
+# ── void_space_logo.svg in-place update ──────────────────────────────────────
+
+# Maps every hex color currently in the logo to its semantic palette key.
+# Includes both exact palette matches and values that have drifted over time.
+LOGO_COLOR_MAP: dict[str, str] = {
+    # Backgrounds
+    "#141820": "bg_dark",
+    "#1b202a": "bg",            # drifted from bg (#1a1f28)
+    "#1a1f28": "bg",
+    "#232936": "bg_float",
+    "#323c4d": "sel",
+    # Foregrounds
+    "#51617d": "fg_dim",        # drifted from fg_dim (#5f7090)
+    "#5f7090": "fg_dim",
+    "#9aa7bd": "fg",            # drifted from fg (#99a7be)
+    "#99a7be": "fg",
+    # Accent colors
+    "#608cc3": "blue",          # drifted from blue (#618bc2)
+    "#618bc2": "blue",
+    "#618cc2": "blue",          # drifted
+    "#9b88d0": "purple",
+    "#c47ebd": "pink",          # drifted from pink (#cc7dd0)
+    "#c47ec4": "pink",          # drifted
+    "#56adb7": "cyan",          # drifted from cyan (#4ab5c4)
+    "#5aabb4": "cyan",          # drifted
+    "#5aabb5": "cyan",          # drifted
+    "#c68b8f": "red",
+    "#ba8873": "orange",
+    "#8fb98c": "green",
+    "#b5a262": "yellow",        # drifted from yellow (#b39b64)
+    "#b39c65": "yellow",        # drifted
+    "#d5b875": "bright_yellow", # drifted from bright_yellow (#d5ad75)
+    "#d5ad76": "bright_yellow", # drifted
+    "#d5ae76": "bright_yellow", # drifted
+}
+
+
+def update_logo_svg(colors: dict[str, str]) -> None:
+    """Update assets/void_space_logo.svg in-place using LOGO_COLOR_MAP."""
+    dest = ROOT / "assets" / "void_space_logo.svg"
+    text = dest.read_text()
+    replaced = 0
+
+    for old_hex, palette_key in LOGO_COLOR_MAP.items():
+        new_hex = colors[palette_key]
+        if old_hex.lower() in text.lower():
+            count = text.lower().count(old_hex.lower())
+            text = re.sub(re.escape(old_hex), new_hex, text, flags=re.IGNORECASE)
+            replaced += count
+        # else: hex not found in SVG — silently skip (color may have been removed)
+
+    dest.write_text(text)
+    print(f"  {dest.relative_to(ROOT)}  updated ({replaced} color(s) replaced)")
+
+
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 def main() -> None:
@@ -132,6 +187,7 @@ def main() -> None:
 
     render_templates(colors)
     generate_palette_svg(colors)
+    update_logo_svg(colors)
 
     print("\nDone.")
 
