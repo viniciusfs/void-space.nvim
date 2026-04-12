@@ -62,3 +62,42 @@ fg        #99a7be  H=217 S=22% L=67%  ← main foreground, operators
 ```
 
 The small H (±2°) and S (±2%) variations are rounding artifacts of the hex approximation, not intentional design decisions — the system targets a uniform L gradient.
+
+---
+
+## Semantic colors
+
+### Accent palette
+
+| Key | Hex | HSL | CSS name | Semantic roles | Hue justification |
+|-----|-----|-----|----------|----------------|-------------------|
+| `red` | `#c68b8f` | H=356 S=34% L=66% | Tapestry | `error`, `deleted` | H≈0° (classic error red), desaturated to avoid eye strain in long sessions |
+| `green` | `#8fb98c` | H=116 S=24% L=64% | Envy | `string_lit`, `added` | H=116° anchors in cool green — distinct from yellow without competing with cyan |
+| `yellow` | `#b39b64` | H=42 S=34% L=55% | Barley Corn | `special`, `warning` | H=42° earthy amber — warm without being orange, evokes stellar dust |
+| `blue` | `#618bc2` | H=214 S=44% L=57% | Danube | `keyword`, `builtin` | H=214° aligns with the bg stack — keywords belong to the space, not aggressive standouts |
+| `purple` | `#9b88d0` | H=256 S=43% L=67% | Cold Purple | `func`, `hint` | H=256° differentiates functions from keywords while staying in the cool family |
+| `cyan` | `#4ab5c4` | H=187 S=51% L=53% | Pelorous | `type_name`, `info` | H=187° cool turquoise, distinct from blue (H=214°) — the most saturated accent, reserved for types |
+| `orange` | `#ba8873` | H=18 S=34% L=59% | Medium Wood | `constant` | H=18° warm and earthy — contrasts with the overall coolness, signals immutable values |
+| `pink` | `#cc7dd0` | H=297 S=47% L=65% | Orchid | `match paren`, `attention` | H=297° soft magenta — alert without being error, distinct from purple (H=256°) |
+| `bright_yellow` | `#d5ad75` | H=35 S=53% L=65% | Putty | `emphasis`, `terminal_color_11` | Same H family as `yellow` (≈35–42°), higher L — emphasis within the same hue family |
+
+### Syntax aliases
+
+The following aliases point to the accent colors above. Changing an alias does not create a new color — it re-points to an existing one.
+
+| Alias | Points to | Role |
+|-------|-----------|------|
+| `comment` | `fg_dim` | Code comments |
+| `keyword` | `blue` | Keywords, conditionals |
+| `func` | `purple` | Functions |
+| `type_name` | `cyan` | Type names |
+| `string_lit` | `green` | String literals |
+| `constant` | `orange` | Constants |
+| `operator` | `fg` | Operators |
+| `type` | `cyan` | Types |
+| `builtin` | `purple` | Built-ins |
+| `special` | `yellow` | Special characters |
+| `error` | `red` | Diagnostic errors |
+| `warning` | `yellow` | Diagnostic warnings |
+| `info` | `cyan` | Diagnostic info |
+| `hint` | `purple` | Diagnostic hints |
