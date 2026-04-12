@@ -8,3 +8,7 @@ test:
 .PHONY: swatches
 swatches:
 	$(PYTHON) scripts/gen_swatch.py
+
+.PHONY: sync
+sync:
+	$(PYTHON) scripts/sync_palette.py
