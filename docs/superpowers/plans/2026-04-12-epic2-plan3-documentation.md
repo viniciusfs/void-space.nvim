@@ -430,9 +430,23 @@ Expected: all tests pass.
 **Files:**
 - Create: `docs/HIGHLIGHTS.md`
 
-- [ ] **Step 1: Create the reference document**
+- [ ] **Step 1: Resolve conditional cells before writing**
 
-Create `docs/HIGHLIGHTS.md` with the following structure. Fill in the colors and validation steps based on the actual state of the files after Plan 2 review.
+Two rows in the tables below are marked `(per Plan 2 decision)`. Before writing the document, read the current source files to get the actual color used:
+
+```bash
+# Check what color Exception uses after Plan 2:
+grep "Exception" lua/void-space/highlights/syntax.lua
+
+# Check what color @keyword.exception uses after Plan 2:
+grep "keyword.exception" lua/void-space/highlights/treesitter.lua
+```
+
+Replace `(per Plan 2 decision)` in the tables with the actual palette key (e.g. `keyword (blue)` or `purple`).
+
+- [ ] **Step 2: Create the reference document**
+
+Create `docs/HIGHLIGHTS.md` with the following structure. The `(per Plan 2 decision)` placeholders must already be resolved (Step 1) before writing.
 
 ````markdown
 # HIGHLIGHTS
@@ -584,7 +598,7 @@ Neovim diagnostic groups. Cover all severity levels for underlines, virtual text
 > `render_markdown`, `snacks`, `telescope`, `todo_comments`, `trouble`, `which_key`
 ````
 
-- [ ] **Step 2: Verify the document is well-formed**
+- [ ] **Step 3: Verify the document is well-formed**
 
 Check that all groups mentioned in the tables exist in the actual `.lua` files. No phantom group names.
 
