@@ -616,7 +616,7 @@ make test
 
 Expected: all tests pass.
 
-- [ ] **Step 2: Commit**
+- [x] **Step 2: Commit**
 
 ```bash
 git add lua/void-space/highlights/editor.lua \
