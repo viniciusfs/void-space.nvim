@@ -45,3 +45,20 @@ Saturation between **~19% (backgrounds)** and **~55% (accents)**. Above that the
 ### 3. L as the only degree of freedom for states
 
 Hover, selection, and dim variants are derived by changing **only L**. H and S do not change to express state — only lightness varies.
+
+---
+
+## Background stack
+
+The six tones use a fixed H≈219° and S≈21% — only L changes. The L progression (10→67%) is a spatial depth gradient: from the darkness of the void to a readable foreground.
+
+```
+bg_dark   #141820  H=220 S=23% L=10%  ← borders, inactive windows
+bg        #1a1f28  H=219 S=21% L=13%  ← main background
+bg_float  #232936  H=221 S=21% L=17%  ← cursor line, popups
+sel       #323c4d  H=218 S=21% L=25%  ← selection, prominent borders
+fg_dim    #5f7090  H=219 S=21% L=47%  ← comments, dimmed text
+fg        #99a7be  H=217 S=22% L=67%  ← main foreground, operators
+```
+
+The small H (±2°) and S (±2%) variations reflect CSS color name constraints, not intent — the system is a monotonically increasing L gradient.
