@@ -142,16 +142,20 @@ LOGO_COLOR_MAP: dict[str, str] = {
     "#9b88d0": "purple",
     "#c47ebd": "pink",          # drifted from pink (#cc7dd0)
     "#c47ec4": "pink",          # drifted
+    "#cc7dd0": "pink",          # exact match
     "#56adb7": "cyan",          # drifted from cyan (#4ab5c4)
     "#5aabb4": "cyan",          # drifted
     "#5aabb5": "cyan",          # drifted
+    "#4ab5c4": "cyan",          # exact match
     "#c68b8f": "red",
     "#ba8873": "orange",
     "#8fb98c": "green",
     "#b5a262": "yellow",        # drifted from yellow (#b39b64)
     "#b39c65": "yellow",        # drifted
+    "#b39b64": "yellow",        # exact match
     "#d5b875": "bright_yellow", # drifted from bright_yellow (#d5ad75)
     "#d5ad76": "bright_yellow", # drifted
+    "#d5ad75": "bright_yellow", # exact match
     "#d5ae76": "bright_yellow", # drifted
 }
 
@@ -168,7 +172,8 @@ def update_logo_svg(colors: dict[str, str]) -> None:
             count = text.lower().count(old_hex.lower())
             text = re.sub(re.escape(old_hex), new_hex, text, flags=re.IGNORECASE)
             replaced += count
-        # else: hex not found in SVG — silently skip (color may have been removed)
+        else:
+            print(f"  warn: {old_hex} not found in logo SVG (may have been removed)")
 
     dest.write_text(text)
     print(f"  {dest.relative_to(ROOT)}  updated ({replaced} color(s) replaced)")
