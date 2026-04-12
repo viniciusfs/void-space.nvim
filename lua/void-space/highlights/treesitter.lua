@@ -48,7 +48,7 @@ function M.get(c, opts)
 	-- Attributes / Properties
 	hl["@attribute"] = { fg = c.yellow }
 	hl["@attribute.builtin"] = { fg = c.yellow }
-	hl["@property"] = { fg = c.type_name }
+	hl["@property"] = { fg = c.fg } -- property access is not a type; matches @variable.member (fg)
 
 	-- Functions
 	hl["@function"] = { link = "Function" }

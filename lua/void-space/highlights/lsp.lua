@@ -22,7 +22,7 @@ function M.get(c, opts)
 	hl["@lsp.type.method"] = { link = "Function" }
 	hl["@lsp.type.namespace"] = { fg = c.type }
 	hl["@lsp.type.parameter"] = { fg = c.fg }
-	hl["@lsp.type.property"] = { fg = c.type_name }
+	hl["@lsp.type.property"] = { fg = c.fg } -- aligns with @property (fg); property access is not a type
 	hl["@lsp.type.struct"] = { link = "Structure" }
 	hl["@lsp.type.type"] = { link = "Type" }
 	hl["@lsp.type.typeParameter"] = { fg = c.type }
