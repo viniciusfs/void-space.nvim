@@ -6,16 +6,16 @@ void-space.nvim é um trabalho contínuo sem marcos de release fixos. O backlog 
 
 ---
 
-## Épico 1 — Fundação conceitual `[ACTIVE]`
+## Épico 1 — Fundação conceitual `[DONE]`
 
 Consolida a visão, paleta e identidade do tema. Desbloqueia o Épico 2.
 
-- [ ] 1.1 Definir e documentar a identidade visual do tema (conceito, mood, intenção estética)
-- [ ] 1.2 Escrever `docs/PALETTE.md` — paleta completa, boas práticas HSL, justificativa de cada cor semântica
+- [x] 1.1 Definir e documentar a identidade visual do tema (conceito, mood, intenção estética)
+- [x] 1.2 Escrever `docs/PALETTE.md` — paleta completa, boas práticas HSL, justificativa de cada cor semântica
 
 ---
 
-## Épico 2 — Refinamento de highlights `[BLOCKED by Épico 1]`
+## Épico 2 — Refinamento de highlights `[ACTIVE]`
 
 Revisão sistemática de todos os highlight groups: consistência visual, redução de ruído e documentação. Requer a fundação conceitual do Épico 1 como referência.
 
