@@ -69,7 +69,7 @@ function M.get(c, opts)
 	hl["@keyword.repeat"] = { fg = c.keyword, italic = opts.italic_keywords }
 	hl["@keyword.return"] = { fg = c.keyword }
 	hl["@keyword.debug"] = { fg = c.error }
-	hl["@keyword.exception"] = { fg = c.type_name }
+	hl["@keyword.exception"] = { fg = c.keyword }
 	hl["@keyword.conditional"] = { fg = c.keyword, italic = opts.italic_keywords }
 	hl["@keyword.conditional.ternary"] = { fg = c.operator }
 	hl["@keyword.directive"] = { fg = c.special }

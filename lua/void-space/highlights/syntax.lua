@@ -15,7 +15,8 @@ function M.get(c, opts)
 	hl.Float = { fg = c.constant }
 	hl.Boolean = { fg = c.constant }
 
-	hl.Identifier = { fg = c.type_name }
+	-- Identifiers use fg (plain text) — c.type_name is reserved for type names only
+	hl.Identifier = { fg = c.fg }
 	hl.Function = { fg = c.func }
 
 	hl.Statement = { fg = c.keyword }
@@ -23,7 +24,8 @@ function M.get(c, opts)
 	hl.Repeat = { fg = c.keyword, italic = opts.italic_keywords }
 	hl.Label = { fg = c.keyword }
 	hl.Keyword = { fg = c.keyword, italic = opts.italic_keywords }
-	hl.Exception = { fg = c.purple }
+	-- Exception uses keyword color (blue): try/catch/throw are control flow keywords
+	hl.Exception = { fg = c.keyword }
 	hl.Operator = { fg = c.operator }
 
 	hl.PreProc = { fg = c.special }
