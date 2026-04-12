@@ -27,7 +27,7 @@ Each color has an owning hue. Blue is always ~214–220°, purple ~256°, cyan ~
 
 | Role          | Approximate H |
 |---------------|--------------|
-| background    | 218–221°     |
+| background    | 217–221°     |
 | red           | 356°         |
 | green         | 116°         |
 | yellow        | 42°          |
@@ -40,7 +40,7 @@ Each color has an owning hue. Blue is always ~214–220°, purple ~256°, cyan ~
 
 ### 2. S kept in range
 
-Saturation between **~19% (backgrounds)** and **~52% (accents)**. Above that the theme loses sobriety; below it loses the nebula texture.
+Saturation between **~19% (backgrounds)** and **~55% (accents)**. Above that the theme loses sobriety; below it loses the nebula texture.
 
 ### 3. L as the only degree of freedom for states
 
