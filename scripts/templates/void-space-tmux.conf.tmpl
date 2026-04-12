@@ -1,0 +1,41 @@
+# Void Space - tmux color scheme
+# https://github.com/viniciusfs/void-space.nvim
+#
+# Usage: source this file from your tmux.conf:
+#   source-file ~/.config/tmux/void-space-tmux.conf
+
+# Status bar
+set -g status-style                 "bg={{bg}},fg={{fg}}"
+set -g status-left-style            "bg={{blue}},fg={{bg}},bold"
+set -g status-right-style           "bg={{bg}},fg={{fg_dim}}"
+
+# Window tabs
+set -g window-status-style          "bg={{bg}},fg={{fg_dim}}"
+set -g window-status-current-style  "bg={{bg_float}},fg={{fg}},bold"
+set -g window-status-activity-style "bg={{bg}},fg={{red}}"
+set -g window-status-bell-style     "bg={{bg}},fg={{orange}},bold"
+
+# Pane borders
+set -g pane-border-style            "fg={{sel}}"
+set -g pane-active-border-style     "fg={{blue}}"
+
+# Command / message line
+set -g message-style                "bg={{bg_float}},fg={{fg}}"
+set -g message-command-style        "bg={{bg_float}},fg={{yellow}}"
+
+# Copy mode / selection
+set -g mode-style                   "bg={{sel}},fg={{fg}}"
+
+# Clock
+set -g clock-mode-colour            "{{blue}}"
+
+# 256-colour terminal colors (ANSI 0-15)
+# These are picked up by applications running inside tmux.
+set -g terminal-overrides           ",*256col*:Tc"
+
+# normal
+set -ga terminal-overrides          ",*:colors=256"
+
+# Set TERM so inner applications see full colour support
+# (uncomment if you are not setting this in your shell profile)
+# set -g default-terminal "tmux-256color"

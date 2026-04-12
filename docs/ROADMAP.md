@@ -31,4 +31,4 @@ Revisão sistemática de todos os highlight groups: consistência visual, reduç
 Automações independentes, sem bloquear nem ser bloqueadas pelos outros épicos.
 
 - [ ] 3.1 Automação de captura de screenshots de demonstração (`make screenshots` via VHS)
-- [ ] 3.2 Sincronização de alterações na paleta com destinos (`extras/`, `assets/`, logo SVG, docs)
+- [x] 3.2 Sincronização de alterações na paleta com destinos (`extras/`, `assets/`, logo SVG, docs)

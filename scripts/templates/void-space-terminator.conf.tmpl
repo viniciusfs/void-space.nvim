@@ -7,12 +7,12 @@
 
 [profiles]
   [[void-space]]
-    background_color  = "#1a1f28"
-    foreground_color  = "#99a7be"
-    cursor_color      = "#99a7be"
+    background_color  = "{{bg}}"
+    foreground_color  = "{{fg}}"
+    cursor_color      = "{{fg}}"
     # 16 terminal colors: normal (0-7) then bright (8-15)
     # black, red, green, yellow, blue, magenta, cyan, white
-    palette = "#1a1f28:#c68b8f:#8fb98c:#b39b64:#618bc2:#9b88d0:#4ab5c4:#323c4d:#232936:#ba8873:#8fb98c:#d5ad75:#618bc2:#cc7dd0:#5f7090:#99a7be"
+    palette = "{{bg}}:{{red}}:{{green}}:{{yellow}}:{{blue}}:{{purple}}:{{cyan}}:{{sel}}:{{bg_float}}:{{orange}}:{{green}}:{{bright_yellow}}:{{blue}}:{{pink}}:{{fg_dim}}:{{fg}}"
     use_theme_colors  = False
     use_system_font   = False
     font              = Monospace 11
