@@ -1,6 +1,6 @@
 # Epic 2 — Plan 1: File Structure Reorganization
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [x]`) syntax for tracking.
 
 **Goal:** Move the 20 plugin highlight files into `lua/void-space/highlights/plugins/` and update all references, with no behavior change.
 
@@ -16,7 +16,7 @@
 - Create: `lua/void-space/highlights/plugins/` (directory)
 - Move: 20 files from `lua/void-space/highlights/` to `lua/void-space/highlights/plugins/`
 
-- [ ] **Step 1: Create the plugins directory and move all plugin files**
+- [x] **Step 1: Create the plugins directory and move all plugin files**
 
 ```bash
 cd /path/to/void-space.nvim
@@ -43,7 +43,7 @@ git mv lua/void-space/highlights/which_key.lua     lua/void-space/highlights/plu
 git mv lua/void-space/highlights/legacy.lua        lua/void-space/highlights/plugins/
 ```
 
-- [ ] **Step 2: Verify the moves**
+- [x] **Step 2: Verify the moves**
 
 ```bash
 ls lua/void-space/highlights/
@@ -73,7 +73,7 @@ todo_comments.lua  trouble.lua  which_key.lua
 **Files:**
 - Modify: `lua/void-space/theme.lua`
 
-- [ ] **Step 1: Replace the plugins section in theme.lua**
+- [x] **Step 1: Replace the plugins section in theme.lua**
 
 In `lua/void-space/theme.lua`, replace the plugins block (lines 17–37) from:
 
@@ -136,7 +136,7 @@ To:
 **Files:**
 - Modify: `spec/highlights_spec.lua`
 
-- [ ] **Step 1: Replace the plugins entries in the MODULES list**
+- [x] **Step 1: Replace the plugins entries in the MODULES list**
 
 In `spec/highlights_spec.lua`, replace the 20 plugin entries in the `MODULES` table (lines 9–29) from:
 
@@ -195,7 +195,7 @@ To:
 **Files:**
 - Modify: `spec/theme_spec.lua`
 
-- [ ] **Step 1: Replace the plugins entries in the MODULES list**
+- [x] **Step 1: Replace the plugins entries in the MODULES list**
 
 In `spec/theme_spec.lua`, replace the 20 plugin entries in the `MODULES` table (lines 10–29) from:
 
@@ -256,7 +256,7 @@ To:
 
 Note: only the 4 plugin module paths change here. The core module paths (`syntax`, `treesitter`, `editor`) stay unchanged.
 
-- [ ] **Step 1: Update the 4 plugin requires in opts_spec.lua**
+- [x] **Step 1: Update the 4 plugin requires in opts_spec.lua**
 
 Make these 4 replacements:
 
@@ -290,7 +290,7 @@ Line 78:
 
 **Files:** no changes
 
-- [ ] **Step 1: Run the full test suite**
+- [x] **Step 1: Run the full test suite**
 
 ```bash
 make test
@@ -298,7 +298,7 @@ make test
 
 Expected: all tests pass with no failures. If any test fails with "module not found", check the path that failed and verify it was updated in all 4 source files.
 
-- [ ] **Step 2: Commit**
+- [x] **Step 2: Commit**
 
 ```bash
 git add lua/void-space/highlights/plugins/ \

@@ -19,10 +19,10 @@ Consolida a visão, paleta e identidade do tema. Desbloqueia o Épico 2.
 
 Revisão sistemática de todos os highlight groups: consistência visual, redução de ruído e documentação. Requer a fundação conceitual do Épico 1 como referência.
 
-- [ ] 2.1 Reorganizar estrutura de arquivos — mover plugins para `highlights/plugins/`, um arquivo por plugin
-- [ ] 2.2 Revisar highlights core (`editor`, `syntax`, `treesitter`, `lsp`, `diagnostics`)
+- [x] 2.1 Reorganizar estrutura de arquivos — mover plugins para `highlights/plugins/`, um arquivo por plugin
+- [x] 2.2 Revisar highlights core (`editor`, `syntax`, `treesitter`, `lsp`, `diagnostics`)
 - [ ] 2.3 Revisar highlights de cada plugin (19 plugins + `legacy`) — um item por arquivo
-- [ ] 2.4 Documentar critério de aceite por grupo: o que o highlight faz e como validar no Neovim
+- [x] 2.4 Documentar critério de aceite por grupo: o que o highlight faz e como validar no Neovim
 
 ---
 
