@@ -19,7 +19,7 @@
 
 `editor.lua` covers Neovim's built-in editor chrome. It already has a few inline comments (e.g. `-- Diff (editor-level)`, `-- Soft diff`). Add section headers for all logical groups.
 
-- [ ] **Step 1: Add section headers**
+- [x] **Step 1: Add section headers**
 
 Insert section comments so the file reads as:
 
@@ -160,7 +160,7 @@ return M
 
 Keep all existing group definitions unchanged — only add the section comment lines shown above.
 
-- [ ] **Step 2: Verify no accidental changes**
+- [x] **Step 2: Verify no accidental changes**
 
 ```bash
 make test
@@ -175,7 +175,7 @@ Expected: all tests pass.
 **Files:**
 - Modify: `lua/void-space/highlights/syntax.lua`
 
-- [ ] **Step 1: Add section headers**
+- [x] **Step 1: Add section headers**
 
 ```lua
 local M = {}
@@ -245,7 +245,7 @@ end
 return M
 ```
 
-- [ ] **Step 2: Verify no accidental changes**
+- [x] **Step 2: Verify no accidental changes**
 
 ```bash
 make test
@@ -262,7 +262,7 @@ Expected: all tests pass.
 
 `treesitter.lua` already has section headers (`-- Variables`, `-- Constants`, etc.). This task verifies they are complete and adds notes for non-obvious decisions.
 
-- [ ] **Step 1: Check section coverage**
+- [x] **Step 1: Check section coverage**
 
 Open the file and verify every logical group has a section header. The sections that should exist:
 
@@ -283,7 +283,7 @@ Open the file and verify every logical group has a section header. The sections 
 -- Diff
 ```
 
-- [ ] **Step 2: Add non-obvious decision notes**
+- [x] **Step 2: Add non-obvious decision notes**
 
 Add inline comments for the decisions made during Plan 2 review. Example:
 
@@ -302,7 +302,7 @@ hl["@constructor"] = { fg = c.builtin }
 
 Add a note next to `@keyword.exception` explaining the color choice (whatever was decided in Plan 2, Task 2).
 
-- [ ] **Step 3: Verify**
+- [x] **Step 3: Verify**
 
 ```bash
 make test
@@ -317,7 +317,7 @@ Expected: all tests pass.
 **Files:**
 - Modify: `lua/void-space/highlights/lsp.lua`
 
-- [ ] **Step 1: Add section headers and decision notes**
+- [x] **Step 1: Add section headers and decision notes**
 
 ```lua
 local M = {}
@@ -353,7 +353,7 @@ return M
 
 Add a comment next to `@lsp.type.namespace` documenting the color choice and how it relates to `@module` in treesitter (per the decision in Plan 2, Task 4).
 
-- [ ] **Step 2: Verify**
+- [x] **Step 2: Verify**
 
 ```bash
 make test
@@ -368,7 +368,7 @@ Expected: all tests pass.
 **Files:**
 - Modify: `lua/void-space/highlights/diagnostics.lua`
 
-- [ ] **Step 1: Add section headers**
+- [x] **Step 1: Add section headers**
 
 ```lua
 local M = {}
@@ -415,7 +415,7 @@ end
 return M
 ```
 
-- [ ] **Step 2: Verify**
+- [x] **Step 2: Verify**
 
 ```bash
 make test
@@ -430,7 +430,7 @@ Expected: all tests pass.
 **Files:**
 - Create: `docs/HIGHLIGHTS.md`
 
-- [ ] **Step 1: Resolve conditional cells before writing**
+- [x] **Step 1: Resolve conditional cells before writing**
 
 Two rows in the tables below are marked `(per Plan 2 decision)`. Before writing the document, read the current source files to get the actual color used:
 
@@ -444,7 +444,7 @@ grep "keyword.exception" lua/void-space/highlights/treesitter.lua
 
 Replace `(per Plan 2 decision)` in the tables with the actual palette key (e.g. `keyword (blue)` or `purple`).
 
-- [ ] **Step 2: Create the reference document**
+- [x] **Step 2: Create the reference document**
 
 Create `docs/HIGHLIGHTS.md` with the following structure. The `(per Plan 2 decision)` placeholders must already be resolved (Step 1) before writing.
 
@@ -598,7 +598,7 @@ Neovim diagnostic groups. Cover all severity levels for underlines, virtual text
 > `render_markdown`, `snacks`, `telescope`, `todo_comments`, `trouble`, `which_key`
 ````
 
-- [ ] **Step 3: Verify the document is well-formed**
+- [x] **Step 3: Verify the document is well-formed**
 
 Check that all groups mentioned in the tables exist in the actual `.lua` files. No phantom group names.
 
@@ -608,7 +608,7 @@ Check that all groups mentioned in the tables exist in the actual `.lua` files. 
 
 **Files:** no code changes
 
-- [ ] **Step 1: Run tests one final time**
+- [x] **Step 1: Run tests one final time**
 
 ```bash
 make test

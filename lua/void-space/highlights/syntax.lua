@@ -5,9 +5,11 @@ function M.get(c, opts)
 
 	local bg_normal = opts.transparent and c.none or c.bg
 
+	-- Comments
 	hl.Comment = { fg = c.comment, italic = opts.italic_comments }
 	hl.SpecialComment = { fg = c.comment, italic = opts.italic_comments }
 
+	-- Literals
 	hl.Constant = { fg = c.constant }
 	hl.String = { fg = c.string_lit }
 	hl.Character = { fg = c.string_lit }
@@ -15,10 +17,12 @@ function M.get(c, opts)
 	hl.Float = { fg = c.constant }
 	hl.Boolean = { fg = c.constant }
 
-	-- Identifiers use fg (plain text) — c.type_name is reserved for type names only
+	-- Identifiers & functions
+	-- Identifier uses fg (plain text) — c.type_name is reserved for type names only.
 	hl.Identifier = { fg = c.fg }
 	hl.Function = { fg = c.func }
 
+	-- Keywords & control flow
 	hl.Statement = { fg = c.keyword }
 	hl.Conditional = { fg = c.keyword, italic = opts.italic_keywords }
 	hl.Repeat = { fg = c.keyword, italic = opts.italic_keywords }
@@ -28,22 +32,27 @@ function M.get(c, opts)
 	hl.Exception = { fg = c.keyword }
 	hl.Operator = { fg = c.operator }
 
+	-- Preprocessor
 	hl.PreProc = { fg = c.special }
 	hl.Include = { fg = c.special }
 	hl.Define = { fg = c.keyword }
 	hl.Macro = { fg = c.keyword }
 	hl.PreCondit = { fg = c.special }
 
+	-- Types
 	hl.Type = { fg = c.type }
 	hl.StorageClass = { fg = c.keyword }
 	hl.Structure = { fg = c.keyword }
 	hl.Typedef = { fg = c.type }
 
+	-- Special characters & tags
 	hl.Special = { fg = c.special }
 	hl.SpecialChar = { fg = c.special }
 	hl.Tag = { fg = c.yellow }
+	-- Delimiter uses plain fg to stay low-noise — punctuation should not distract.
 	hl.Delimiter = { fg = c.fg }
 
+	-- Formatting
 	hl.Underlined = { fg = c.blue, underline = true }
 	hl.Bold = { bold = true }
 	hl.Italic = { italic = true }

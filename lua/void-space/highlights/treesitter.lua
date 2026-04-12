@@ -10,7 +10,9 @@ function M.get(c, opts)
 	hl["@variable.builtin"] = { fg = c.builtin }
 	hl["@variable.parameter"] = { fg = c.fg }
 	hl["@variable.parameter.builtin"] = { fg = c.builtin }
-	hl["@variable.member"] = { fg = c.fg } -- member access is not a type; fg reduces noise and avoids confusion with type_name (cyan)
+	-- @variable.member uses fg (plain text) — member access is not a type; avoids
+	-- confusion with type_name (cyan) and reduces visual noise on property reads.
+	hl["@variable.member"] = { fg = c.fg }
 
 	-- Constants
 	hl["@constant"] = { link = "Constant" }
@@ -54,6 +56,8 @@ function M.get(c, opts)
 	hl["@function"] = { link = "Function" }
 	hl["@function.builtin"] = { fg = c.builtin }
 	hl["@function.call"] = { link = "Function" }
+	-- @function.macro and @constructor use builtin color: they behave like builtins
+	-- even when user-defined (they transform code or produce values implicitly).
 	hl["@function.macro"] = { fg = c.builtin }
 	hl["@function.method"] = { link = "Function" }
 	hl["@function.method.call"] = { link = "Function" }
@@ -69,6 +73,8 @@ function M.get(c, opts)
 	hl["@keyword.repeat"] = { fg = c.keyword, italic = opts.italic_keywords }
 	hl["@keyword.return"] = { fg = c.keyword }
 	hl["@keyword.debug"] = { fg = c.error }
+	-- @keyword.exception uses keyword color (blue): exception keywords (try/catch/throw)
+	-- are control flow constructs, not error values — consistent with syntax.lua Exception.
 	hl["@keyword.exception"] = { fg = c.keyword }
 	hl["@keyword.conditional"] = { fg = c.keyword, italic = opts.italic_keywords }
 	hl["@keyword.conditional.ternary"] = { fg = c.operator }
