@@ -106,7 +106,7 @@ The following aliases point to the accent colors above. Changing an alias does n
 
 ## Variant guide
 
-A variant is a file at `lua/void-space/palettes/<name>.lua` that exports the same interface as the `default` palette.
+A variant is a file at `lua/void-space/palettes/<name>.lua` that exports the same interface as the `default` palette. Variants are loaded dynamically — no registration is needed beyond creating the file. Users activate a variant via `require('void-space').setup({ variant = "<name>" })`.
 
 ### Required keys
 
@@ -137,10 +137,10 @@ none  -- must always be the string "NONE"
 
 ### What must not change
 
-- Remove required keys
-- Use hardcoded hex strings outside of `lua/void-space/palettes/` — every color must be a local variable first
-- Break the monotonically increasing L progression of the background stack
-- Assign `none` any value other than `"NONE"`
+- Do not remove required keys
+- Do not use hardcoded hex strings outside of `lua/void-space/palettes/` — every color must be a local variable first
+- Do not break the monotonically increasing L progression of the background stack
+- Do not assign `none` any value other than `"NONE"`
 
 ### How to test
 
