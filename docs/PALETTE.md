@@ -5,12 +5,12 @@
 
 ---
 
-## Identidade
+## Identity
 
-void-space não é uma derivação do vim-deep-space. O deep-space é um ponto de partida histórico; as decisões de cor são tomadas pela intenção estética atual, não por fidelidade ao antecessor.
+void-space is not a derivative of vim-deep-space. deep-space is a historical starting point; color decisions are driven by the current aesthetic intent, not by fidelity to the predecessor.
 
-**Conceito:** espaço profundo com textura de nebulosa. O universo não é um vazio uniforme — é gás ionizado, poeira estelar, gradientes de densidade. As cores refletem isso: têm hue e saturação escolhidos para evocar essa textura sem ser agressivos.
+**Concept:** deep space with nebula texture. The universe is not a uniform void — it is ionized gas, stellar dust, density gradients. The colors reflect this: their hue and saturation are chosen to evoke that texture without being aggressive.
 
-**Mood:** vívido mas sóbrio. Cores que se distinguem entre si com clareza funcional, mas que nunca "gritam". Conforto visual é requisito — o programador passa horas olhando para esse tema.
+**Mood:** vivid but sober. Colors that distinguish themselves with functional clarity, but never shout. Visual comfort is a requirement — the developer spends hours looking at this theme.
 
-**Princípio central:** baixo contraste intencional. A hierarquia visual emerge de diferenças de luminosidade e hue, não de choques de valor. Nenhum branco puro, nenhum preto puro.
+**Core principle:** intentional low contrast. Visual hierarchy emerges from lightness and hue differences, not from value clashes. No pure white, no pure black.
