@@ -46,9 +46,9 @@ function M.get(c, opts)
 	hl.NeoTreeTitleBar = { fg = c.bg, bg = c.blue, bold = true }
 
 	hl.NeoTreeTabActive = { fg = c.fg, bg = c.sel, bold = true }
-	hl.NeoTreeTabInactive = { fg = c.fg_dim, bg = c.bg }
+	hl.NeoTreeTabInactive = { fg = c.fg_dim, bg = bg_sidebar }
 	hl.NeoTreeTabSeparatorActive = { fg = c.sel, bg = c.sel }
-	hl.NeoTreeTabSeparatorInactive = { fg = c.bg, bg = c.bg }
+	hl.NeoTreeTabSeparatorInactive = { fg = bg_sidebar, bg = bg_sidebar }
 
 	return hl
 end
