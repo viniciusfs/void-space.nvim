@@ -3,6 +3,7 @@ local M = {}
 function M.get(c, opts)
 	local hl = {}
 
+	-- git commit message syntax
 	hl.gitcommitComment = { fg = c.fg_dim, italic = opts.italic_comments }
 	hl.gitcommitOnBranch = { fg = c.fg_dim, italic = opts.italic_comments }
 	hl.gitcommitFile = { fg = c.cyan }
@@ -16,6 +17,7 @@ function M.get(c, opts)
 	hl.gitcommitSelectedType = { fg = c.green }
 	hl.gitcommitDiscardedType = { fg = c.red }
 
+	-- CSS / SCSS / Less syntax
 	hl.cssAttrComma = { fg = c.green }
 	hl.cssAttributeSelector = { fg = c.green }
 	hl.cssBraces = { fg = c.fg }
@@ -36,12 +38,14 @@ function M.get(c, opts)
 	hl.lessFunction = { fg = c.yellow }
 	hl.lessCssAttribute = { fg = c.fg }
 
+	-- HTML syntax
 	hl.htmlArg = { fg = c.yellow }
 	hl.htmlEndTag = { fg = c.purple }
 	hl.htmlTag = { fg = c.purple }
 	hl.htmlTagName = { fg = c.blue }
 	hl.htmlTitle = { fg = c.fg }
 
+	-- JavaScript syntax (legacy vim-based; numbers/null use c.constant = orange)
 	hl.javaScriptBraces = { fg = c.fg }
 	hl.javaScriptIdentifier = { fg = c.blue }
 	hl.javaScriptFunction = { fg = c.blue }
@@ -50,6 +54,7 @@ function M.get(c, opts)
 	hl.javaScriptRequire = { fg = c.cyan }
 	hl.javaScriptNull = { fg = c.constant }
 
+	-- Ruby syntax
 	hl.rubyBlockParameterList = { fg = c.purple }
 	hl.rubyInterpolationDelimiter = { fg = c.purple }
 	hl.rubyStringDelimiter = { fg = c.green }
