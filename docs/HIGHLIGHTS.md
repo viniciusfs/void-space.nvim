@@ -394,3 +394,95 @@ Highlights `TODO`, `FIX`, `NOTE`, and similar comment keywords. Two display styl
 | `TodoSignFIX` | link: TodoFgFIX | Sign column — links to foreground color group |
 
 **How to validate:** Open a file with `-- TODO:`, `-- FIX:`, `-- NOTE:`, `-- WARN:`, `-- HACK:`, `-- PERF:`, `-- TEST:` comments. In badge mode (`:TodoTrouble` or virtual text): each keyword shows dark text on its category color, bold. In foreground mode (sign column): matches the foreground color. Verify FIX=red, HACK=yellow, NOTE=cyan, PERF=purple, TEST=pink, TODO=blue, WARN=orange.
+
+---
+
+### indent
+
+Indent guide lines for indent-blankline.nvim. Supports both v3 (`Ibl*`) and v2 legacy (`IndentBlankline*`) API groups. No backgrounds — foreground-only.
+
+| Group | Color(s) | Validates as |
+|-------|----------|--------------|
+| `IblIndent` | fg: sel | Guide lines are dim `sel` — barely visible, not distracting |
+| `IblScope` | fg: fg_dim | Active scope line is slightly brighter than guide lines |
+| `IndentBlanklineChar` | fg: sel | v2 equivalent of `IblIndent` |
+| `IndentBlanklineContextChar` | fg: fg_dim | v2 equivalent of `IblScope` |
+| `IndentBlanklineContextStart` | sp: fg_dim, underline | v2 scope start marker — underline in `fg_dim` color |
+| `IndentBlanklineSpaceChar` | link: Whitespace | Delegates to built-in whitespace group |
+
+**How to validate:** Open a file with nested code. Indent guide lines should be barely perceptible (`sel` color). The active block's guide should be slightly brighter (`fg_dim`).
+
+---
+
+### flash
+
+Jump-navigation overlay for flash.nvim. Uses the inverted badge pattern (dark text on accent background) for all label/match groups. The prompt line is `bg_float`-based and transparent-aware.
+
+| Group | Color(s) | Validates as |
+|-------|----------|--------------|
+| `FlashBackdrop` | fg: fg_dim | Non-jump text is dimmed during navigation |
+| `FlashLabel` | fg: bg, bg: pink, bold | Primary jump label — dark text on pink, bold (high contrast) |
+| `FlashMatch` | fg: bg, bg: yellow | Search match characters — dark on yellow |
+| `FlashCurrent` | fg: bg, bg: orange, bold | Currently selected match — dark on orange, bold |
+| `FlashCursor` | fg: bg, bg: cyan | Cursor position highlight — dark on cyan |
+| `FlashPrompt` | fg: fg, bg: bg_float (transparent-aware) | Prompt line background |
+| `FlashPromptIcon` | fg: cyan, bg: bg_float (transparent-aware) | Prompt icon — cyan on float background |
+
+**How to validate:** Trigger flash (e.g. `s` key). Backdrop should dim background text. Jump labels should be bold pink badges. Current match should be orange. In transparent mode, the prompt background becomes transparent while badges remain visible.
+
+---
+
+### fidget
+
+LSP progress spinner in the corner. Two groups covering title and task description.
+
+| Group | Color(s) | Validates as |
+|-------|----------|--------------|
+| `FidgetTitle` | fg: yellow, bold | Spinner title (e.g. "rust-analyzer") — yellow and bold for visibility |
+| `FidgetTask` | fg: fg_dim | In-progress task description — dim to avoid distraction |
+
+**How to validate:** Open a file with an active LSP server. The spinner title should be yellow and bold; the task text below it should be dim.
+
+---
+
+### mini
+
+Highlights for mini.nvim modules. Covers animate, clue, completion, cursorword, deps, diff, files, hipatterns, icons, indentscope, jump, map, notify, operator, pick, starter, statusline, surround, tabline, test, and trailspace. Float surfaces are transparent-aware; the minimap is intentionally always dark.
+
+| Group | Color(s) | Validates as |
+|-------|----------|--------------|
+| `MiniCursorword` | bg: sel | Word under cursor — same selection tint as `Visual` |
+| `MiniDepsHint` | fg: hint (purple) | Deps log hint level — matches `DiagnosticHint` |
+| `MiniDepsInfo` | fg: info (cyan) | Deps log info level — matches `DiagnosticInfo` |
+| `MiniDepsChangeAdded` | fg: green | Package added |
+| `MiniDepsChangeRemoved` | fg: red | Package removed |
+| `MiniDiffSignAdd` | fg: green, bg: bg (transparent-aware) | Diff add sign in gutter |
+| `MiniDiffOverAdd` | bg: bg_float (transparent-aware) | Diff added-line overlay in buffer |
+| `MiniFilesBorder` | fg: sel, bg: bg_float | Files browser border — dim |
+| `MiniFilesTitle` | fg: yellow, bg: bg_float, bold | Files browser title |
+| `MiniFilesTitleFocused` | fg: bright_yellow, bg: bg_float, bold | Files browser focused pane title — brighter yellow |
+| `MiniHipatternsFixme` | fg: bg, bg: red, bold | FIXME badge — dark text on red |
+| `MiniHipatternsNote` | fg: bg, bg: cyan, bold | NOTE badge — dark text on cyan |
+| `MiniJump2dSpot` | fg: bg, bg: pink, bold | Jump2d primary spot — dark on pink, bold |
+| `MiniMapNormal` | fg: fg_dim, bg: bg_dark | Minimap sidebar — intentionally always dark (not transparent-aware) |
+| `MiniNotifyNormal` | fg: fg, bg: bg_float (transparent-aware) | Notification float body |
+| `MiniNotifyTitle` | fg: yellow, bg: bg_float, bold | Notification title |
+| `MiniPickNormal` | fg: fg, bg: bg_float (transparent-aware) | Picker float body |
+| `MiniPickHeader` | fg: bg, bg: blue, bold | Picker header — inverted on blue |
+| `MiniPickMatchRanges` | fg: yellow, bold | Fuzzy-match characters |
+| `MiniPickMatchMarked` | bg: bg_float (transparent-aware), bold | Marked items — float background |
+| `MiniPickPreviewLine` | bg: bg_float (transparent-aware) | Preview line — float background |
+| `MiniStarterHeader` | fg: blue | Starter screen header |
+| `MiniStarterFooter` | fg: fg_dim, italic (opts) | Footer — italic follows `opts.italic_comments` |
+| `MiniStatuslineModeNormal` | fg: bg, bg: blue, bold | Normal mode pill — inverted on blue |
+| `MiniStatuslineModeInsert` | fg: bg, bg: green, bold | Insert mode pill — inverted on green |
+| `MiniStatuslineModeVisual` | fg: bg, bg: purple, bold | Visual mode pill — inverted on purple |
+| `MiniStatuslineFilename` | fg: fg, bg: bg_float (transparent-aware) | Filename section background |
+| `MiniStatuslineInactive` | fg: fg_dim, bg: bg_float (transparent-aware) | Inactive window statusline |
+| `MiniTablineCurrent` | fg: fg, bg: bg (transparent-aware), bold | Active buffer tab — normal buffer background |
+| `MiniTablineFill` | bg: bg_float (transparent-aware) | Tabline fill area |
+| `MiniTablineHidden` | fg: fg_dim, bg: bg_float | Hidden (non-visible) buffer tab |
+| `MiniTablineTabpagesection` | fg: bg, bg: blue, bold | Tab pages indicator — inverted on blue |
+| `MiniTrailspace` | bg: red | Trailing whitespace — red background for visibility |
+
+**How to validate:** Trigger each mini.nvim submodule in turn. Key checks: deps log uses cyan for info and purple for hint; diff overlays and picker preview are transparent in transparent mode; statusline mode pills are inverted; tabline current tab uses buffer background (not float background).
