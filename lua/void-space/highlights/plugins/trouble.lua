@@ -4,6 +4,7 @@ function M.get(c, opts)
 	local hl = {}
 
 	local bg_sidebar = opts.transparent and c.none or c.bg
+	local bg_float = opts.transparent and c.none or c.bg_float
 
 	hl.TroubleNormal = { fg = c.fg, bg = bg_sidebar }
 	hl.TroubleNormalNC = { fg = c.fg_dim, bg = bg_sidebar }
@@ -15,12 +16,12 @@ function M.get(c, opts)
 	hl.TroubleFile = { fg = c.blue }
 	hl.TroubleCode = { fg = c.fg_dim }
 	hl.TroubleIndent = { fg = c.sel }
-	hl.TroublePreview = { bg = c.bg_float }
+	hl.TroublePreview = { bg = bg_float }
 
 	hl.TroubleIconError = { fg = c.red }
 	hl.TroubleIconWarn = { fg = c.yellow }
-	hl.TroubleIconHint = { fg = c.cyan }
-	hl.TroubleIconInfo = { fg = c.blue }
+	hl.TroubleIconHint = { fg = c.hint }
+	hl.TroubleIconInfo = { fg = c.info }
 	hl.TroubleIconDirectory = { fg = c.blue }
 	hl.TroubleIconFile = { fg = c.fg }
 
