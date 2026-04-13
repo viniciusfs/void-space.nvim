@@ -12,7 +12,7 @@ function M.get(c, opts)
 	hl.BufferLineOffsetSeparator = { fg = c.sel, bg = c.bg_dark }
 
 	hl.BufferLineBufferVisible = { fg = c.fg_dim, bg = c.bg_dark }
-	hl.BufferLineBufferSelected = { fg = c.fg, bg = c.bg, bold = true, italic = false }
+	hl.BufferLineBufferSelected = { fg = c.fg, bg = c.bg, bold = true }
 
 	hl.BufferLineTab = { fg = c.fg_dim, bg = c.bg_dark }
 	hl.BufferLineTabSelected = { fg = c.fg, bg = c.bg, bold = true }
@@ -54,9 +54,9 @@ function M.get(c, opts)
 	hl.BufferLineCloseVisible = { fg = c.fg_dim, bg = c.bg_dark }
 	hl.BufferLineCloseSelected = { fg = c.red, bg = c.bg }
 
-	hl.BufferLinePickSelected = { fg = c.pink, bg = c.bg, bold = true, italic = true }
-	hl.BufferLinePick = { fg = c.pink, bg = c.bg_dark, bold = true, italic = true }
-	hl.BufferLinePickVisible = { fg = c.pink, bg = c.bg_dark, bold = true, italic = true }
+	hl.BufferLinePickSelected = { fg = c.pink, bg = c.bg, bold = true, italic = opts.italic_keywords }
+	hl.BufferLinePick = { fg = c.pink, bg = c.bg_dark, bold = true, italic = opts.italic_keywords }
+	hl.BufferLinePickVisible = { fg = c.pink, bg = c.bg_dark, bold = true, italic = opts.italic_keywords }
 
 	hl.BufferLineGroupLabel = { fg = c.bg_dark, bg = c.purple }
 	hl.BufferLineGroupSeparator = { fg = c.purple, bg = c.bg_dark }
