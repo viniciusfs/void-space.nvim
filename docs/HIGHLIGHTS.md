@@ -486,3 +486,112 @@ Highlights for mini.nvim modules. Covers animate, clue, completion, cursorword, 
 | `MiniTrailspace` | bg: red | Trailing whitespace — red background for visibility |
 
 **How to validate:** Trigger each mini.nvim submodule in turn. Key checks: deps log uses cyan for info and purple for hint; diff overlays and picker preview are transparent in transparent mode; statusline mode pills are inverted; tabline current tab uses buffer background (not float background).
+
+---
+
+### dashboard
+
+Start screen (dashboard.nvim). Foreground-only — no backgrounds. Italic on footer follows `opts.italic_comments`.
+
+| Group | Color(s) | Validates as |
+|-------|----------|--------------|
+| `DashboardHeader` | fg: blue | Header text — structural blue |
+| `DashboardFooter` | fg: fg_dim, italic (opts) | Footer — dim, italic follows `opts.italic_comments` |
+| `DashboardDesc` | fg: fg | Item descriptions — plain text |
+| `DashboardKey` | fg: cyan | Keybind labels — action/type cyan |
+| `DashboardIcon` | fg: blue | Item icons |
+| `DashboardShortcut` | fg: cyan | Shortcut labels |
+| `DashboardProjectTitle` | fg: yellow, bold | Project section title — yellow, bold |
+| `DashboardMruTitle` | fg: yellow, bold | MRU section title — yellow, bold |
+| `DashboardRecentProjects` | fg: blue | Recent project entries |
+
+**How to validate:** Open Neovim without a file. Header should be blue; footer dim and italic (if `opts.italic_comments` is on); key labels and shortcuts cyan; section titles yellow.
+
+---
+
+### lazy
+
+Plugin manager UI (lazy.nvim). The main float uses `bg_float` (transparent-aware). Commit log, reason tags, and progress each have distinct colors.
+
+| Group | Color(s) | Validates as |
+|-------|----------|--------------|
+| `LazyNormal` | fg: fg, bg: bg_float (transparent-aware) | Main float background |
+| `LazyButton` | fg: fg, bg: sel | Inactive button — text on selection background |
+| `LazyButtonActive` | fg: bg, bg: blue, bold | Active button — inverted on blue |
+| `LazyH1` | link: LazyButtonActive | H1 heading — same visual as active button |
+| `LazyH2` | fg: yellow, bold | H2 section heading — yellow |
+| `LazyComment` | fg: fg_dim, italic (opts) | Comments — dim, italic follows `opts.italic_comments` |
+| `LazyCommit` | fg: green | Commit hash — green |
+| `LazyCommitType` | fg: blue | Commit type (e.g. `feat`) — blue |
+| `LazyCommitScope` | fg: purple | Commit scope — purple |
+| `LazyCommitIssue` | fg: red | Issue reference — red (danger-adjacent) |
+| `LazyDir` | fg: blue | Plugin directory path |
+| `LazyUrl` | fg: cyan, underline | Plugin URL — cyan, underlined |
+| `LazyLocal` | fg: orange | Local (non-remote) plugin — orange constant role |
+| `LazyReasonCmd` | fg: orange | Loaded by command |
+| `LazyReasonEvent` | fg: purple | Loaded by event |
+| `LazyReasonFt` | fg: blue | Loaded by filetype |
+| `LazyReasonRuntime` | fg: red | Loaded by runtime (heavy path — red signals this) |
+| `LazyReasonStart` | fg: green | Loaded at startup |
+| `LazyProgressDone` | fg: green, bold | Progress complete |
+| `LazyProgressTodo` | fg: fg_dim | Progress pending — dim |
+| `LazyTaskError` | fg: red | Task error output |
+
+**How to validate:** Open `:Lazy`. Float background should be `bg_float`. H1 headers and active button should look identical (dark text on blue). Commit types: green hash, blue type, purple scope. Reason tags use distinct colors per load type.
+
+---
+
+### render_markdown
+
+Inline markdown rendering (render-markdown.nvim). All heading and code backgrounds are `bg_float`-based and transparent-aware. Heading colors follow the accent palette in H1–H6 order.
+
+| Group | Color(s) | Validates as |
+|-------|----------|--------------|
+| `RenderMarkdownH1` | fg: yellow, bg: bg_float (transparent-aware), bold | H1 — yellow on float background |
+| `RenderMarkdownH2` | fg: blue, bg: bg_float (transparent-aware), bold | H2 — blue |
+| `RenderMarkdownH3` | fg: cyan, bg: bg_float (transparent-aware), bold | H3 — cyan |
+| `RenderMarkdownH4` | fg: green, bg: bg_float (transparent-aware), bold | H4 — green |
+| `RenderMarkdownH5` | fg: orange, bg: bg_float (transparent-aware), bold | H5 — orange |
+| `RenderMarkdownH6` | fg: purple, bg: bg_float (transparent-aware), bold | H6 — purple |
+| `RenderMarkdownH1Bg` | bg: bg_float (transparent-aware) | Full-line heading background tint — H1 level |
+| `RenderMarkdownCode` | bg: bg_float (transparent-aware) | Code block background |
+| `RenderMarkdownCodeInline` | fg: green, bg: bg_float (transparent-aware) | Inline code — green text on float bg |
+| `RenderMarkdownBullet` | fg: fg_dim | Bullet markers — dim (structural decorator, not error) |
+| `RenderMarkdownQuote` | fg: fg_dim, italic (opts) | Block quote — dim, italic follows `opts.italic_comments` |
+| `RenderMarkdownDash` | fg: sel | Horizontal rule — `sel` color |
+| `RenderMarkdownLink` | fg: blue, underline | Links — blue, underlined |
+| `RenderMarkdownChecked` | fg: green | Checked task item |
+| `RenderMarkdownUnchecked` | fg: fg_dim | Unchecked task item — dim |
+| `RenderMarkdownTableHead` | fg: yellow, bold | Table header row |
+| `RenderMarkdownTableFill` | fg: sel | Table border fill characters |
+
+**How to validate:** Open a Markdown file. Heading levels H1–H6 should show in yellow/blue/cyan/green/orange/purple with a `bg_float` background tint. Bullet markers should be dim (was red before fix). Code blocks should have a `bg_float` tint. In transparent mode, all float backgrounds become transparent.
+
+---
+
+### legacy
+
+Syntax groups for CSS/SCSS/Less, HTML, JavaScript (legacy vim syntax), Ruby, and git commit messages. Foreground-only — no backgrounds. Numbers and null in JavaScript use `c.constant` (orange) to match the treesitter `@number` mapping.
+
+| Group | Color(s) | Validates as |
+|-------|----------|--------------|
+| `gitcommitComment` | fg: fg_dim, italic (opts) | Commit comment lines (`#`) |
+| `gitcommitBranch` | fg: orange | Branch name — orange |
+| `gitcommitFile` | fg: cyan | File path in status — cyan |
+| `gitcommitSelectedFile` | fg: green | Staged file |
+| `gitcommitDiscardedFile` | fg: red | Discarded file — red (destructive action) |
+| `gitcommitUnmergedFile` | fg: yellow | Unmerged file — warning yellow |
+| `cssClassName` | fg: orange | CSS class name — constant/identifier role |
+| `cssIdentifier` | fg: yellow | CSS identifier |
+| `cssImportant` | fg: purple | `!important` keyword |
+| `htmlTagName` | fg: blue | HTML tag name |
+| `htmlArg` | fg: yellow | HTML attribute name |
+| `htmlEndTag` | fg: purple | HTML closing tag |
+| `javaScriptNumber` | fg: constant (orange) | Number literals — orange matches `@number` in treesitter (was red before fix) |
+| `javaScriptNull` | fg: constant (orange) | `null` literal — orange matches `@constant.builtin` (was red before fix) |
+| `javaScriptIdentifier` | fg: blue | Keywords (`var`, `let`, `const`) |
+| `javaScriptRequire` | fg: cyan | `require()` call |
+| `rubyStringDelimiter` | fg: green | String delimiters |
+| `rubyRegexpSpecial` | fg: cyan | Regexp special characters |
+
+**How to validate:** Open a `.js` file — numbers and `null` should be orange (not red). Open a git commit message — branch name orange, staged files green, discarded files red. Open a `.css` file — class names orange, `!important` purple.
