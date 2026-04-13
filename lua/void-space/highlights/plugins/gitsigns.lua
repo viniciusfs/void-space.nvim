@@ -4,6 +4,7 @@ function M.get(c, opts)
 	local hl = {}
 
 	local bg_sidebar = opts.transparent and c.none or c.bg
+	local bg_ln = opts.transparent and c.none or c.bg_float
 
 	hl.GitSignsAdd = { fg = c.green, bg = bg_sidebar }
 	hl.GitSignsChange = { fg = c.yellow, bg = bg_sidebar }
@@ -14,10 +15,10 @@ function M.get(c, opts)
 	hl.GitSignsAddNr = { link = "GitSignsAdd" }
 	hl.GitSignsChangeNr = { link = "GitSignsChange" }
 	hl.GitSignsDeleteNr = { link = "GitSignsDelete" }
-	hl.GitSignsAddLn = { bg = c.bg_float }
-	hl.GitSignsChangeLn = { bg = c.bg_float }
-	hl.GitSignsDeleteLn = { bg = c.bg_float }
-	hl.GitSignsCurrentLineBlame = { fg = c.fg_dim, italic = true }
+	hl.GitSignsAddLn = { bg = bg_ln }
+	hl.GitSignsChangeLn = { bg = bg_ln }
+	hl.GitSignsDeleteLn = { bg = bg_ln }
+	hl.GitSignsCurrentLineBlame = { fg = c.fg_dim, italic = opts.italic_comments }
 
 	return hl
 end
