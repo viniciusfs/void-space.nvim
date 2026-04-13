@@ -207,7 +207,7 @@ Three-panel picker float: results, prompt input, and preview. Preview pane is in
 | `TelescopeNormal` | fg: fg, bg: bg_float (transparent-aware) | Results panel body |
 | `TelescopePromptBorder` | fg: blue, bg: bg_float (transparent-aware) | Prompt border is blue to anchor the input area |
 | `TelescopePromptTitle` | fg: bg, bg: blue, bold | Prompt title: inverted (dark text on blue) |
-| `TelescopePreviewNormal` | bg: bg_dark | Preview pane is darker than prompt/results |
+| `TelescopePreviewNormal` | fg: fg, bg: bg_dark | Preview pane is darker than prompt/results |
 | `TelescopePreviewBorder` | fg: bg_dark, bg: bg_dark | Preview border blends into the preview background (invisible) |
 | `TelescopeSelection` | fg: fg, bg: sel | Selected result uses the selection background |
 | `TelescopeMatching` | fg: yellow, bold | Fuzzy-match characters are yellow and bold |
