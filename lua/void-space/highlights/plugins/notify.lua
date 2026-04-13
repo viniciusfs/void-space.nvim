@@ -17,9 +17,9 @@ function M.get(c, opts)
 	hl.NotifyWARNTitle = { fg = c.yellow, bold = true }
 	hl.NotifyWARNBody = { fg = c.fg, bg = bg_float }
 
-	hl.NotifyINFOBorder = { fg = c.blue }
-	hl.NotifyINFOIcon = { fg = c.blue }
-	hl.NotifyINFOTitle = { fg = c.blue, bold = true }
+	hl.NotifyINFOBorder = { fg = c.info }
+	hl.NotifyINFOIcon = { fg = c.info }
+	hl.NotifyINFOTitle = { fg = c.info, bold = true }
 	hl.NotifyINFOBody = { fg = c.fg, bg = bg_float }
 
 	hl.NotifyDEBUGBorder = { fg = c.fg_dim }
