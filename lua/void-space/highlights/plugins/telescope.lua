@@ -7,11 +7,11 @@ function M.get(c, opts)
 
 	hl.TelescopeNormal = { fg = c.fg, bg = bg_float }
 	hl.TelescopeBorder = { fg = c.sel, bg = bg_float }
-	hl.TelescopePromptNormal = { fg = c.fg, bg = c.bg_float }
-	hl.TelescopePromptBorder = { fg = c.blue, bg = c.bg_float }
+	hl.TelescopePromptNormal = { fg = c.fg, bg = bg_float }
+	hl.TelescopePromptBorder = { fg = c.blue, bg = bg_float }
 	hl.TelescopePromptTitle = { fg = c.bg, bg = c.blue, bold = true }
-	hl.TelescopePromptPrefix = { fg = c.cyan, bg = c.bg_float }
-	hl.TelescopePromptCounter = { fg = c.fg_dim, bg = c.bg_float }
+	hl.TelescopePromptPrefix = { fg = c.cyan, bg = bg_float }
+	hl.TelescopePromptCounter = { fg = c.fg_dim, bg = bg_float }
 	hl.TelescopeResultsNormal = { fg = c.fg, bg = bg_float }
 	hl.TelescopeResultsBorder = { fg = c.blue, bg = bg_float }
 	hl.TelescopeResultsTitle = { fg = c.bg, bg = c.blue, bold = true }
