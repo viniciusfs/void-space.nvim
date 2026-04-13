@@ -314,3 +314,83 @@ Multi-purpose plugin covering picker, notifier, dashboard, indent guides, scroll
 | `SnacksIndentScope` | fg: fg_dim | Active scope line is slightly brighter than guide lines |
 
 **How to validate:** Open the snacks picker — verify input pane matches body background. Open the dashboard — verify header/title/footer/key colors. Trigger a notification for each severity. In transparent mode: picker body, input pane, and notification body become transparent; preview pane and backdrop remain opaque.
+
+---
+
+### which_key
+
+Popup float listing available keybindings for the current prefix. Float surfaces are transparent-aware.
+
+| Group | Color(s) | Validates as |
+|-------|----------|--------------|
+| `WhichKeyFloat` | bg: bg_float (transparent-aware) | Float body background one step lighter than `bg` |
+| `WhichKeyBorder` | fg: sel, bg: bg_float | Float border is dim (low visual weight) |
+| `WhichKeyTitle` | fg: yellow, bg: bg_float, bold | Title bar: yellow text, bold |
+| `WhichKey` | fg: cyan | Key label characters are cyan |
+| `WhichKeyGroup` | fg: blue | Group prefix labels are blue (structural keyword role) |
+| `WhichKeyDesc` | fg: fg | Key descriptions are plain text |
+| `WhichKeySeparator` | fg: fg_dim | Separator character is dim |
+| `WhichKeyValue` | fg: green | Value annotations (e.g. current option state) are green |
+| `WhichKeyIconRed` | fg: red | Icon color group for red-tinted icons — explicit color, not a diagnostic role |
+
+**How to validate:** Press `<leader>` (or any mapped prefix) and wait for the popup. Verify key=cyan, group=blue, descriptions=plain, title=yellow. In transparent mode, the float background disappears.
+
+---
+
+### illuminate
+
+Highlights all occurrences of the word under the cursor. Uses the selection accent background — no float or opaque surfaces.
+
+| Group | Color(s) | Validates as |
+|-------|----------|--------------|
+| `IlluminatedWordText` | bg: sel | Generic text reference — subtle background tint |
+| `IlluminatedWordRead` | bg: sel | Read access — same tint as text (distinguishable by user override if desired) |
+| `IlluminatedWordWrite` | bg: sel, bold | Write access — same tint but bold to signal mutation |
+
+**How to validate:** Open a source file, place cursor on a variable name. All occurrences should get a background tint matching `Visual`. The occurrence under a write (assignment) should additionally be bold.
+
+---
+
+### trouble
+
+Diagnostic list panel (sidebar). Transparent-aware on both the panel background and the preview float overlay. Icon colors must match the core `DiagnosticX` groups.
+
+| Group | Color(s) | Validates as |
+|-------|----------|--------------|
+| `TroubleNormal` | fg: fg, bg: bg (transparent-aware) | Panel body matches normal buffer background |
+| `TroubleNormalNC` | fg: fg_dim, bg: bg (transparent-aware) | Non-current panel state — dim text |
+| `TroubleCount` | fg: fg, bg: sel | Diagnostic count badge: plain text on selection background |
+| `TroubleDirectory` | fg: blue | Directory path entries — structural blue |
+| `TroubleFile` | fg: blue | File name entries — structural blue |
+| `TroubleIndent` | fg: sel | Indent guide lines — selection color, dim |
+| `TroublePreview` | bg: bg_float (transparent-aware) | Preview overlay — float background |
+| `TroubleIconError` | fg: red | Error icon — matches `DiagnosticError` |
+| `TroubleIconWarn` | fg: yellow | Warn icon — matches `DiagnosticWarn` |
+| `TroubleIconInfo` | fg: info (cyan) | Info icon — matches `DiagnosticInfo` (was `c.blue` before fix) |
+| `TroubleIconHint` | fg: hint (purple) | Hint icon — matches `DiagnosticHint` (was `c.cyan` before fix) |
+| `TroubleSignError` | link: DiagnosticError | Sign column — delegates to core diagnostic group |
+| `TroubleTextError` | link: DiagnosticError | Inline text — delegates to core diagnostic group |
+
+**How to validate:** Open `:Trouble diagnostics`. Verify error icon=red, warn=yellow, info=cyan, hint=purple — all consistent with the gutter diagnostic signs. Check that the preview overlay uses `bg_float`. In transparent mode, panel background and preview float become transparent.
+
+---
+
+### todo_comments
+
+Highlights `TODO`, `FIX`, `NOTE`, and similar comment keywords. Two display styles: badge (inverted background) and foreground (colored text). Sign column links to the foreground style.
+
+| Group | Color(s) | Validates as |
+|-------|----------|--------------|
+| `TodoBgFIX` | fg: bg, bg: red, bold | FIX badge — dark text on red, bold |
+| `TodoBgHACK` | fg: bg, bg: yellow, bold | HACK badge — dark text on yellow |
+| `TodoBgNOTE` | fg: bg, bg: cyan, bold | NOTE badge — dark text on cyan |
+| `TodoBgPERF` | fg: bg, bg: purple, bold | PERF badge — dark text on purple |
+| `TodoBgTEST` | fg: bg, bg: pink, bold | TEST badge — dark text on pink |
+| `TodoBgTODO` | fg: bg, bg: blue, bold | TODO badge — dark text on blue |
+| `TodoBgWARN` | fg: bg, bg: orange, bold | WARN badge — dark text on orange (distinct from HACK yellow) |
+| `TodoFgFIX` | fg: red | FIX foreground — red text for critical issues |
+| `TodoFgNOTE` | fg: cyan | NOTE foreground — info/cyan role |
+| `TodoFgTODO` | fg: blue | TODO foreground — keyword/action blue |
+| `TodoSignFIX` | link: TodoFgFIX | Sign column — links to foreground color group |
+
+**How to validate:** Open a file with `-- TODO:`, `-- FIX:`, `-- NOTE:`, `-- WARN:`, `-- HACK:`, `-- PERF:`, `-- TEST:` comments. In badge mode (`:TodoTrouble` or virtual text): each keyword shows dark text on its category color, bold. In foreground mode (sign column): matches the foreground color. Verify FIX=red, HACK=yellow, NOTE=cyan, PERF=purple, TEST=pink, TODO=blue, WARN=orange.
