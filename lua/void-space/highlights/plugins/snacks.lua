@@ -34,14 +34,13 @@ function M.get(c, opts)
 	hl.SnacksPickerMatch = { fg = c.yellow, bold = true }
 	hl.SnacksPickerSelected = { fg = c.purple }
 	hl.SnacksPickerCursor = { link = "Cursor" }
+	-- Picker: file metadata (path, row, col annotations)
 	hl.SnacksPickerDir = { fg = c.fg_dim }
 	hl.SnacksPickerFile = { fg = c.fg }
 	hl.SnacksPickerRow = { fg = c.fg_dim }
 	hl.SnacksPickerCol = { fg = c.fg_dim }
 	hl.SnacksPickerSearch = { fg = c.yellow }
 	hl.SnacksPickerPathHidden = { fg = c.fg_dim }
-	-- Picker: file metadata (path, row, col annotations)
-	hl.SnacksPickerDir = { fg = c.fg_dim }
 	-- Picker: filter flags and controls
 	hl.SnacksPickerToggle = { fg = c.cyan }
 	hl.SnacksPickerFlagBuf = { fg = c.blue }

@@ -214,3 +214,103 @@ Three-panel picker float: results, prompt input, and preview. Preview pane is in
 | `TelescopeMultiSelection` | fg: purple, bg: sel | Multi-selected items show purple text |
 
 **How to validate:** Open `:Telescope find_files`. Check that prompt and results share the same background (`bg_float`). Check preview is visibly darker. Type to see yellow match characters.
+
+---
+
+### neo_tree
+
+File-explorer sidebar panel. The sidebar background is transparent-aware; the preview float and tab bar use separate locals.
+
+| Group | Color(s) | Validates as |
+|-------|----------|--------------|
+| `NeoTreeNormal` | fg: fg, bg: bg (transparent-aware) | Sidebar body matches normal buffer background |
+| `NeoTreeRootName` | fg: blue, bold | Root directory entry is blue and bold |
+| `NeoTreeDirectoryName` | fg: blue | All directory names are blue |
+| `NeoTreeFileNameOpened` | fg: yellow | Currently open file is highlighted yellow |
+| `NeoTreeModified` | fg: yellow | Unsaved-change indicator |
+| `NeoTreeSymbolicLinkTarget` | fg: cyan | Symlink targets use the type color |
+| `NeoTreeGitAdded` | fg: green | File newly added to the index |
+| `NeoTreeGitModified` | fg: yellow | Tracked file with unstaged changes |
+| `NeoTreeGitDeleted` | fg: red | Tracked file deleted from the index |
+| `NeoTreeGitConflict` | fg: red, bold | Merge conflict — red and bold for urgency |
+| `NeoTreeGitUntracked` | fg: orange | Untracked file — orange distinguishes from ignored (fg_dim) |
+| `NeoTreeGitIgnored` | fg: fg_dim | Gitignored file — dim, lowest visual weight |
+| `NeoTreeTitleBar` | fg: bg, bg: blue, bold | Panel title: inverted (dark text on blue) |
+| `NeoTreeTabActive` | fg: fg, bg: sel, bold | Active neo-tree tab — full text on selection background |
+| `NeoTreeTabInactive` | fg: fg_dim, bg: bg (transparent-aware) | Inactive tab — dim text on sidebar background |
+
+**How to validate:** Open neo-tree in a git repository. Check directory/file colors, git status indicators. Verify that untracked (orange) is visually distinct from ignored (dim).
+
+---
+
+### noice
+
+Replaces the built-in cmdline, message, and popup surfaces. Float-based surfaces use `bg_float`; the popupmenu uses `sel` (always visible).
+
+| Group | Color(s) | Validates as |
+|-------|----------|--------------|
+| `NoiceCmdline` | fg: fg, bg: bg (transparent-aware) | Command-line background |
+| `NoiceCmdlineIcon` | fg: cyan | `:` command icon |
+| `NoiceCmdlineIconSearch` | fg: yellow | `/` search icon |
+| `NoiceCmdlinePopupBorder` | fg: sel, bg: bg_float | Float border is dim (low visual weight) |
+| `NoiceConfirmBorder` | fg: yellow | Confirm dialog border is yellow (action prompt) |
+| `NoiceMini` | fg: fg, bg: bg_float (transparent-aware) | Mini notification bar uses the float background |
+| `NoicePopupmenuSelected` | fg: bg, bg: blue | Selected menu item: inverted dark text on blue |
+| `NoicePopupmenuMatch` | fg: yellow, bold | Fuzzy-match characters are yellow |
+| `NoiceLspProgressSpinner` | fg: cyan | LSP operation progress spinner |
+| `NoiceFormatProgressDone` | fg: green | Completed progress step |
+
+**How to validate:** Press `:` to open the command line (cyan icon, float border appears). Press `/` to search (yellow icon). Trigger an LSP operation to see progress. In transparent mode, float backgrounds disappear.
+
+---
+
+### notify
+
+Notification popups grouped by severity. All severity levels share the same body spec; border, icon, and title follow the diagnostic color system.
+
+| Group | Color(s) | Validates as |
+|-------|----------|--------------|
+| `NotifyBackground` | bg: bg_float (transparent-aware) | Base float background |
+| `NotifyERRORBorder` | fg: red | Error notification border — matches `DiagnosticError` |
+| `NotifyERRORTitle` | fg: red, bold | Error title |
+| `NotifyERRORBody` | fg: fg, bg: bg_float (transparent-aware) | Error notification body |
+| `NotifyWARNBorder` | fg: yellow | Warning border — matches `DiagnosticWarn` |
+| `NotifyINFOBorder` | fg: info (cyan) | Info border — matches `DiagnosticInfo` |
+| `NotifyINFOTitle` | fg: info (cyan), bold | Info title — uses `c.info` (cyan), not the unrelated `c.blue` |
+| `NotifyDEBUGBorder` | fg: fg_dim | Debug notifications are dim — no semantic severity color |
+| `NotifyTRACEBorder` | fg: purple | Trace border uses the hint color (lowest diagnostic severity) |
+
+**How to validate:** Run `:lua vim.notify("test", vim.log.levels.ERROR)` for each level. Verify ERROR=red, WARN=yellow, INFO=cyan, DEBUG=dim, TRACE=purple. INFO was previously blue — cyan is the correct `c.info` mapping.
+
+---
+
+### snacks
+
+Multi-purpose plugin covering picker, notifier, dashboard, indent guides, scrollbar, git graph, and more. Transparent-aware on float surfaces; preview pane and backdrop are intentionally always opaque.
+
+| Group | Color(s) | Validates as |
+|-------|----------|--------------|
+| `SnacksBackdrop` | bg: bg_dark | Modal backdrop — always darkest layer (intentionally opaque) |
+| `SnacksPickerNormal` | fg: fg, bg: bg_float (transparent-aware) | Picker float body |
+| `SnacksPickerBorder` | fg: blue, bg: bg_float | Picker border is blue |
+| `SnacksPickerTitle` | fg: bg, bg: blue, bold | Picker title: inverted (dark text on blue) |
+| `SnacksPickerInput` | fg: fg, bg: bg_float (transparent-aware) | Input pane — same float background as the list |
+| `SnacksPickerInputBorder` | fg: blue, bg: bg_float (transparent-aware) | Input pane border |
+| `SnacksPickerPreview` | fg: fg, bg: bg_dark | Preview pane — always darker (not transparent-aware, matches telescope preview) |
+| `SnacksPickerPreviewBorder` | fg: bg_dark, bg: bg_dark | Preview border blends into preview background (invisible) |
+| `SnacksPickerMatch` | fg: yellow, bold | Fuzzy-match characters are yellow |
+| `SnacksPickerSelected` | fg: purple | Multi-selected items show purple text |
+| `SnacksNotifierBorderError` | fg: red | Error notification border |
+| `SnacksNotifierBorderInfo` | fg: blue | Info notification border |
+| `SnacksNotifierNormal` | fg: fg, bg: bg_float (transparent-aware) | Notification body |
+| `SnacksDashboardHeader` | fg: blue | Dashboard header text |
+| `SnacksDashboardTitle` | fg: yellow, bold | Dashboard section titles |
+| `SnacksDashboardFooter` | fg: fg_dim, italic (opts) | Footer text; italic follows `opts.italic_comments` |
+| `SnacksDashboardKey` | fg: cyan | Dashboard action keybind labels |
+| `SnacksInputNormal` | fg: fg, bg: bg_float (transparent-aware) | Input widget body |
+| `SnacksInputBorder` | fg: yellow, bg: bg_float (transparent-aware) | Input widget border (yellow = action prompt) |
+| `SnacksTermTitle` | fg: bg, bg: orange, bold | Terminal float title: inverted on orange |
+| `SnacksIndent` | fg: sel | Indent guide lines use the selection color (dim but visible) |
+| `SnacksIndentScope` | fg: fg_dim | Active scope line is slightly brighter than guide lines |
+
+**How to validate:** Open the snacks picker — verify input pane matches body background. Open the dashboard — verify header/title/footer/key colors. Trigger a notification for each severity. In transparent mode: picker body, input pane, and notification body become transparent; preview pane and backdrop remain opaque.
