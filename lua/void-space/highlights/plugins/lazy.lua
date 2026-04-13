@@ -8,7 +8,7 @@ function M.get(c, opts)
 	hl.LazyNormal = { fg = c.fg, bg = bg_float }
 	hl.LazyButton = { fg = c.fg, bg = c.sel }
 	hl.LazyButtonActive = { fg = c.bg, bg = c.blue, bold = true }
-	hl.LazyH1 = { fg = c.bg, bg = c.blue, bold = true }
+	hl.LazyH1 = { link = "LazyButtonActive" }
 	hl.LazyH2 = { fg = c.yellow, bold = true }
 	hl.LazyComment = { fg = c.fg_dim, italic = opts.italic_comments }
 	hl.LazyCommit = { fg = c.green }
