@@ -12,7 +12,7 @@ function M.get(c, opts)
 	hl.CmpItemKind = { fg = c.cyan }
 	hl.CmpItemKindDefault = { fg = c.cyan }
 	hl.CmpItemMenu = { fg = c.fg_dim }
-	hl.CmpGhostText = { fg = c.fg_dim, italic = true }
+	hl.CmpGhostText = { fg = c.fg_dim, italic = opts.italic_comments }
 
 	hl.CmpItemKindText = { fg = c.fg }
 	hl.CmpItemKindMethod = { fg = c.yellow }
@@ -24,17 +24,17 @@ function M.get(c, opts)
 	hl.CmpItemKindInterface = { fg = c.orange }
 	hl.CmpItemKindModule = { fg = c.orange }
 	hl.CmpItemKindProperty = { fg = c.purple }
-	hl.CmpItemKindUnit = { fg = c.red }
+	hl.CmpItemKindUnit = { fg = c.cyan }
 	hl.CmpItemKindValue = { fg = c.green }
 	hl.CmpItemKindEnum = { fg = c.orange }
 	hl.CmpItemKindKeyword = { fg = c.blue }
 	hl.CmpItemKindSnippet = { fg = c.pink }
 	hl.CmpItemKindColor = { fg = c.pink }
 	hl.CmpItemKindFile = { fg = c.blue }
-	hl.CmpItemKindReference = { fg = c.red }
+	hl.CmpItemKindReference = { fg = c.purple }
 	hl.CmpItemKindFolder = { fg = c.blue }
-	hl.CmpItemKindEnumMember = { fg = c.red }
-	hl.CmpItemKindConstant = { fg = c.red }
+	hl.CmpItemKindEnumMember = { fg = c.green }
+	hl.CmpItemKindConstant = { fg = c.constant }
 	hl.CmpItemKindStruct = { fg = c.orange }
 	hl.CmpItemKindEvent = { fg = c.yellow }
 	hl.CmpItemKindOperator = { fg = c.cyan }
@@ -79,11 +79,11 @@ function M.get(c, opts)
 	hl.BlinkCmpKindTypeParameter = { link = "CmpItemKindTypeParameter" }
 	hl.BlinkCmpKindCopilot = { link = "CmpItemKindCopilot" }
 	hl.BlinkCmpSource = { fg = c.fg_dim }
-	hl.BlinkCmpGhostText = { fg = c.fg_dim, italic = true }
+	hl.BlinkCmpGhostText = { fg = c.fg_dim, italic = opts.italic_comments }
 	hl.BlinkCmpDoc = { fg = c.fg, bg = bg_float }
 	hl.BlinkCmpDocBorder = { fg = c.sel, bg = bg_float }
 	hl.BlinkCmpDocSeparator = { fg = c.sel }
-	hl.BlinkCmpDocCursorLine = { bg = c.bg_float }
+	hl.BlinkCmpDocCursorLine = { bg = bg_float }
 	hl.BlinkCmpSignatureHelp = { fg = c.fg, bg = bg_float }
 	hl.BlinkCmpSignatureHelpBorder = { fg = c.sel, bg = bg_float }
 	hl.BlinkCmpSignatureHelpActiveParameter = { fg = c.yellow, bold = true }
