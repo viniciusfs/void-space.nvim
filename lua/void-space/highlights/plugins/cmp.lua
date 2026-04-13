@@ -5,15 +5,20 @@ function M.get(c, opts)
 
 	local bg_float = opts.transparent and c.none or c.bg_float
 
+	-- nvim-cmp: item display
 	hl.CmpItemAbbr = { fg = c.fg }
 	hl.CmpItemAbbrDeprecated = { fg = c.fg_dim, strikethrough = true }
+	-- Match characters (fuzzy) are yellow + bold
 	hl.CmpItemAbbrMatch = { fg = c.yellow, bold = true }
 	hl.CmpItemAbbrMatchFuzzy = { fg = c.yellow }
 	hl.CmpItemKind = { fg = c.cyan }
 	hl.CmpItemKindDefault = { fg = c.cyan }
 	hl.CmpItemMenu = { fg = c.fg_dim }
+	-- Ghost text — italic follows opts.italic_comments
 	hl.CmpGhostText = { fg = c.fg_dim, italic = opts.italic_comments }
 
+	-- nvim-cmp: kind icons by LSP CompletionItemKind
+	-- (cyan=type, purple=field/ref, orange=class/constant, blue=keyword/file)
 	hl.CmpItemKindText = { fg = c.fg }
 	hl.CmpItemKindMethod = { fg = c.yellow }
 	hl.CmpItemKindFunction = { fg = c.yellow }
@@ -41,6 +46,7 @@ function M.get(c, opts)
 	hl.CmpItemKindTypeParameter = { fg = c.orange }
 	hl.CmpItemKindCopilot = { fg = c.green }
 
+	-- blink.cmp: menu chrome
 	hl.BlinkCmpMenu = { fg = c.fg, bg = c.sel }
 	hl.BlinkCmpMenuBorder = { fg = c.sel, bg = c.sel }
 	hl.BlinkCmpMenuSelection = { fg = c.bg, bg = c.blue }
@@ -52,6 +58,7 @@ function M.get(c, opts)
 	hl.BlinkCmpLabelDetail = { fg = c.fg_dim }
 	hl.BlinkCmpLabelDescription = { fg = c.fg_dim }
 	hl.BlinkCmpKind = { fg = c.cyan }
+	-- blink.cmp: kind icons — link to nvim-cmp definitions above
 	hl.BlinkCmpKindText = { link = "CmpItemKindText" }
 	hl.BlinkCmpKindMethod = { link = "CmpItemKindMethod" }
 	hl.BlinkCmpKindFunction = { link = "CmpItemKindFunction" }
@@ -78,8 +85,10 @@ function M.get(c, opts)
 	hl.BlinkCmpKindOperator = { link = "CmpItemKindOperator" }
 	hl.BlinkCmpKindTypeParameter = { link = "CmpItemKindTypeParameter" }
 	hl.BlinkCmpKindCopilot = { link = "CmpItemKindCopilot" }
+	-- blink.cmp: source label and ghost text
 	hl.BlinkCmpSource = { fg = c.fg_dim }
 	hl.BlinkCmpGhostText = { fg = c.fg_dim, italic = opts.italic_comments }
+	-- blink.cmp: documentation float
 	hl.BlinkCmpDoc = { fg = c.fg, bg = bg_float }
 	hl.BlinkCmpDocBorder = { fg = c.sel, bg = bg_float }
 	hl.BlinkCmpDocSeparator = { fg = c.sel }
