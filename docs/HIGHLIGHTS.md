@@ -137,11 +137,80 @@ Neovim diagnostic groups. Cover all severity levels for underlines, virtual text
 
 ## Plugin modules
 
-> **Placeholder — to be filled during task 2.3 (plugin review)**
->
-> Each plugin reviewed during task 2.3 will have a section added here following the same format as the core modules above: a table of key groups with color and validation description, and a short "how to validate" block.
->
-> Plugins to document (alphabetical):
-> `bufferline`, `cmp`, `dashboard`, `fidget`, `flash`, `gitsigns`, `illuminate`,
-> `indent`, `lazy`, `legacy`, `mini`, `neo_tree`, `noice`, `notify`,
-> `render_markdown`, `snacks`, `telescope`, `todo_comments`, `trouble`, `which_key`
+---
+
+### bufferline
+
+Tab bar showing open buffers (or tabs). Renders on a persistent `bg_dark` strip at the top of the editor.
+
+| Group | Color(s) | Validates as |
+|-------|----------|--------------|
+| `BufferLineBackground` | fg: fg_dim, bg: bg_dark | Inactive tabs are dim text on the dark tab bar |
+| `BufferLineBufferSelected` | fg: fg, bg: bg, bold | Active tab is full-brightness, bold, on the normal background |
+| `BufferLineModified` | fg: yellow | Unsaved buffer shows a yellow dot |
+| `BufferLineError` | fg: red, bg: bg_dark | Error diagnostic icon follows error semantic color |
+| `BufferLineWarning` | fg: yellow, bg: bg_dark | Warning diagnostic icon follows warning semantic color |
+| `BufferLineHint` | fg: cyan, bg: bg_dark | Hint diagnostic icon follows hint semantic color |
+| `BufferLinePickSelected` | fg: pink, bold, italic (opts) | Jump-to-buffer picker shows a pink letter on the active tab |
+| `BufferLineGroupLabel` | fg: bg_dark, bg: purple | Group label band: dark text on purple (inverted) |
+| `BufferLineDuplicate` | fg: sel, bg: bg_dark | Duplicate buffer path prefix is very dim |
+
+**How to validate:** Open multiple buffers. Check inactive vs. active tab appearance. Introduce an unsaved change to see the yellow dot. Trigger the buffer picker if configured.
+
+---
+
+### cmp
+
+Completion menu for nvim-cmp and blink.cmp. The `BlinkCmpKind*` groups link to their `CmpItemKind*` counterparts, so a single color change propagates to both engines.
+
+| Group | Color(s) | Validates as |
+|-------|----------|--------------|
+| `CmpItemAbbrMatch` | fg: yellow, bold | Fuzzy-matched characters are yellow and bold |
+| `CmpItemAbbrDeprecated` | fg: fg_dim, strikethrough | Deprecated items are struck through |
+| `CmpItemKindFunction` | fg: yellow | Function kind icon |
+| `CmpItemKindClass` | fg: orange | Class/interface/struct kind icon (type-family) |
+| `CmpItemKindConstant` | fg: constant (orange alias) | Constant kind icon (consistent with `@constant` in treesitter) |
+| `CmpItemKindKeyword` | fg: blue | Keyword kind icon |
+| `CmpItemKindSnippet` | fg: pink | Snippet kind icon |
+| `CmpItemKindField` | fg: purple | Field/property kind icon |
+| `CmpGhostText` | fg: fg_dim, italic (opts) | Ghost text preview; italic follows `opts.italic_comments` |
+| `BlinkCmpDocBorder` | fg: sel | Blink doc float border is low-contrast |
+
+**How to validate:** Trigger completion in a buffer with LSP. Verify match characters are yellow. Check that constant/enum-member items are orange, not red. Check ghost text is dim.
+
+---
+
+### gitsigns
+
+Sign column and line background indicators for git hunks. Sign backgrounds are transparent-aware; line background tints use `bg_float`.
+
+| Group | Color(s) | Validates as |
+|-------|----------|--------------|
+| `GitSignsAdd` | fg: green, bg: bg (transparent-aware) | Added lines show a green sign |
+| `GitSignsChange` | fg: yellow, bg: bg (transparent-aware) | Changed lines show a yellow sign |
+| `GitSignsDelete` | fg: red, bg: bg (transparent-aware) | Deleted lines show a red fold marker |
+| `GitSignsChangedelete` | fg: orange | Partially deleted changed line — orange (between change and delete) |
+| `GitSignsUntracked` | fg: fg_dim | Untracked files are dim in the gutter |
+| `GitSignsAddLn` | bg: bg_float (transparent-aware) | Full-line tint on added lines (subtle, one step lighter than normal bg) |
+| `GitSignsCurrentLineBlame` | fg: fg_dim, italic (opts) | Inline blame annotation; italic follows `opts.italic_comments` |
+
+**How to validate:** Open a file in a git repo with staged and unstaged changes. Verify sign colors. Enable line blame (`:Gitsigns toggle_current_line_blame`) to see dim italic text.
+
+---
+
+### telescope
+
+Three-panel picker float: results, prompt input, and preview. Preview pane is intentionally darker (`bg_dark`) than the other two panels.
+
+| Group | Color(s) | Validates as |
+|-------|----------|--------------|
+| `TelescopeNormal` | fg: fg, bg: bg_float (transparent-aware) | Results panel body |
+| `TelescopePromptBorder` | fg: blue, bg: bg_float (transparent-aware) | Prompt border is blue to anchor the input area |
+| `TelescopePromptTitle` | fg: bg, bg: blue, bold | Prompt title: inverted (dark text on blue) |
+| `TelescopePreviewNormal` | bg: bg_dark | Preview pane is darker than prompt/results |
+| `TelescopePreviewBorder` | fg: bg_dark, bg: bg_dark | Preview border blends into the preview background (invisible) |
+| `TelescopeSelection` | fg: fg, bg: sel | Selected result uses the selection background |
+| `TelescopeMatching` | fg: yellow, bold | Fuzzy-match characters are yellow and bold |
+| `TelescopeMultiSelection` | fg: purple, bg: sel | Multi-selected items show purple text |
+
+**How to validate:** Open `:Telescope find_files`. Check that prompt and results share the same background (`bg_float`). Check preview is visibly darker. Type to see yellow match characters.
