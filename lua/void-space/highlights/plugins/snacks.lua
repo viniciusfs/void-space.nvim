@@ -17,8 +17,8 @@ function M.get(c, opts)
 	hl.SnacksPickerBorder = { fg = c.blue, bg = bg_float }
 	hl.SnacksPickerTitle = { fg = c.bg, bg = c.blue, bold = true }
 	hl.SnacksPickerPrompt = { fg = c.cyan }
-	hl.SnacksPickerInput = { fg = c.fg, bg = c.bg_float }
-	hl.SnacksPickerInputBorder = { fg = c.blue, bg = c.bg_float }
+	hl.SnacksPickerInput = { fg = c.fg, bg = bg_float }
+	hl.SnacksPickerInputBorder = { fg = c.blue, bg = bg_float }
 	hl.SnacksPickerList = { fg = c.fg, bg = bg_float }
 	hl.SnacksPickerListBorder = { fg = c.sel, bg = bg_float }
 	hl.SnacksPickerPreview = { fg = c.fg, bg = c.bg_dark }
@@ -87,8 +87,8 @@ function M.get(c, opts)
 
 	hl.SnacksTermNormal = { link = "NormalFloat" }
 	hl.SnacksTermTitle = { fg = c.bg, bg = c.orange, bold = true }
-	hl.SnacksInputNormal = { fg = c.fg, bg = c.bg_float }
-	hl.SnacksInputBorder = { fg = c.yellow, bg = c.bg_float }
+	hl.SnacksInputNormal = { fg = c.fg, bg = bg_float }
+	hl.SnacksInputBorder = { fg = c.yellow, bg = bg_float }
 	hl.SnacksInputTitle = { fg = c.yellow, bold = true }
 	hl.SnacksInputIcon = { fg = c.cyan }
 	hl.SnacksInputPrompt = { fg = c.cyan }
