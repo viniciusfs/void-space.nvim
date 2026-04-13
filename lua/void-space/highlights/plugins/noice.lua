@@ -15,7 +15,7 @@ function M.get(c, opts)
 	hl.NoiceCmdlinePrompt = { fg = c.cyan }
 	hl.NoiceConfirm = { fg = c.fg, bg = bg_float }
 	hl.NoiceConfirmBorder = { fg = c.yellow, bg = bg_float }
-	hl.NoiceMini = { fg = c.fg, bg = c.bg_float }
+	hl.NoiceMini = { fg = c.fg, bg = bg_float }
 	hl.NoicePopup = { fg = c.fg, bg = bg_float }
 	hl.NoicePopupBorder = { fg = c.sel, bg = bg_float }
 	hl.NoicePopupmenu = { fg = c.fg, bg = c.sel }
