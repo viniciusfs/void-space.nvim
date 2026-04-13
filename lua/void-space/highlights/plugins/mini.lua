@@ -14,8 +14,8 @@ function M.get(c, opts)
 
 	hl.MiniDepsChangeAdded = { fg = c.green }
 	hl.MiniDepsChangeRemoved = { fg = c.red }
-	hl.MiniDepsHint = { fg = c.cyan }
-	hl.MiniDepsInfo = { fg = c.blue }
+	hl.MiniDepsHint = { fg = c.hint }
+	hl.MiniDepsInfo = { fg = c.info }
 	hl.MiniDepsMsgBreaking = { fg = c.red, bold = true }
 	hl.MiniDepsTitle = { fg = c.yellow, bold = true }
 	hl.MiniDepsTitleError = { fg = c.red, bold = true }
@@ -25,10 +25,10 @@ function M.get(c, opts)
 	hl.MiniDiffSignAdd = { fg = c.green, bg = bg_sidebar }
 	hl.MiniDiffSignChange = { fg = c.yellow, bg = bg_sidebar }
 	hl.MiniDiffSignDelete = { fg = c.red, bg = bg_sidebar }
-	hl.MiniDiffOverAdd = { bg = c.bg_float }
-	hl.MiniDiffOverChange = { bg = c.bg_float }
-	hl.MiniDiffOverContext = { bg = c.bg_float }
-	hl.MiniDiffOverDelete = { bg = c.bg_float }
+	hl.MiniDiffOverAdd = { bg = bg_float }
+	hl.MiniDiffOverChange = { bg = bg_float }
+	hl.MiniDiffOverContext = { bg = bg_float }
+	hl.MiniDiffOverDelete = { bg = bg_float }
 
 	hl.MiniFilesBorder = { fg = c.sel, bg = bg_float }
 	hl.MiniFilesBorderModified = { fg = c.yellow, bg = bg_float }
@@ -80,10 +80,10 @@ function M.get(c, opts)
 	hl.MiniPickIconDirectory = { fg = c.blue }
 	hl.MiniPickIconFile = { fg = c.fg }
 	hl.MiniPickMatchCurrent = { bg = c.sel }
-	hl.MiniPickMatchMarked = { bg = c.bg_float, bold = true }
+	hl.MiniPickMatchMarked = { bg = bg_float, bold = true }
 	hl.MiniPickMatchRanges = { fg = c.yellow, bold = true }
 	hl.MiniPickNormal = { fg = c.fg, bg = bg_float }
-	hl.MiniPickPreviewLine = { bg = c.bg_float }
+	hl.MiniPickPreviewLine = { bg = bg_float }
 	hl.MiniPickPreviewRegion = { bg = c.sel }
 	hl.MiniPickPrompt = { fg = c.cyan, bg = bg_float }
 
@@ -99,9 +99,9 @@ function M.get(c, opts)
 
 	hl.MiniStatuslineDevinfo = { fg = c.fg, bg = c.sel }
 	hl.MiniStatuslineFileinfo = { fg = c.fg, bg = c.sel }
-	hl.MiniStatuslineFilename = { fg = c.fg, bg = c.bg_float }
-	hl.MiniStatuslineFilenameModified = { fg = c.yellow, bg = c.bg_float, bold = true }
-	hl.MiniStatuslineInactive = { fg = c.fg_dim, bg = c.bg_float }
+	hl.MiniStatuslineFilename = { fg = c.fg, bg = bg_float }
+	hl.MiniStatuslineFilenameModified = { fg = c.yellow, bg = bg_float, bold = true }
+	hl.MiniStatuslineInactive = { fg = c.fg_dim, bg = bg_float }
 	hl.MiniStatuslineModeCommand = { fg = c.bg, bg = c.yellow, bold = true }
 	hl.MiniStatuslineModeInsert = { fg = c.bg, bg = c.green, bold = true }
 	hl.MiniStatuslineModeNormal = { fg = c.bg, bg = c.blue, bold = true }
@@ -111,14 +111,14 @@ function M.get(c, opts)
 
 	hl.MiniSurround = { fg = c.bg, bg = c.orange }
 
-	hl.MiniTablineCurrent = { fg = c.fg, bg = c.bg, bold = true }
-	hl.MiniTablineFill = { bg = c.bg_float }
-	hl.MiniTablineHidden = { fg = c.fg_dim, bg = c.bg_float }
-	hl.MiniTablineModifiedCurrent = { fg = c.yellow, bg = c.bg, bold = true }
-	hl.MiniTablineModifiedHidden = { fg = c.yellow, bg = c.bg_float }
-	hl.MiniTablineModifiedVisible = { fg = c.yellow, bg = c.bg_float }
+	hl.MiniTablineCurrent = { fg = c.fg, bg = bg_sidebar, bold = true }
+	hl.MiniTablineFill = { bg = bg_float }
+	hl.MiniTablineHidden = { fg = c.fg_dim, bg = bg_float }
+	hl.MiniTablineModifiedCurrent = { fg = c.yellow, bg = bg_sidebar, bold = true }
+	hl.MiniTablineModifiedHidden = { fg = c.yellow, bg = bg_float }
+	hl.MiniTablineModifiedVisible = { fg = c.yellow, bg = bg_float }
 	hl.MiniTablineTabpagesection = { fg = c.bg, bg = c.blue, bold = true }
-	hl.MiniTablineVisible = { fg = c.fg, bg = c.bg_float }
+	hl.MiniTablineVisible = { fg = c.fg, bg = bg_float }
 
 	hl.MiniTestEmphasis = { bold = true }
 	hl.MiniTestFail = { fg = c.red, bold = true }
