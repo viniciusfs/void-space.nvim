@@ -3,6 +3,7 @@ local M = {}
 function M.get(c, opts)
 	local hl = {}
 
+	-- Badge variant: dark text (c.bg) on category color — inverted for high visibility
 	hl.TodoBgFIX = { fg = c.bg, bg = c.red, bold = true }
 	hl.TodoBgHACK = { fg = c.bg, bg = c.yellow, bold = true }
 	hl.TodoBgNOTE = { fg = c.bg, bg = c.cyan, bold = true }
@@ -11,6 +12,7 @@ function M.get(c, opts)
 	hl.TodoBgTODO = { fg = c.bg, bg = c.blue, bold = true }
 	hl.TodoBgWARN = { fg = c.bg, bg = c.orange, bold = true }
 
+	-- Foreground variant: category color on transparent background
 	hl.TodoFgFIX = { fg = c.red }
 	hl.TodoFgHACK = { fg = c.yellow }
 	hl.TodoFgNOTE = { fg = c.cyan }
@@ -19,6 +21,7 @@ function M.get(c, opts)
 	hl.TodoFgTODO = { fg = c.blue }
 	hl.TodoFgWARN = { fg = c.orange }
 
+	-- Sign column: links to foreground color groups
 	hl.TodoSignFIX = { link = "TodoFgFIX" }
 	hl.TodoSignHACK = { link = "TodoFgHACK" }
 	hl.TodoSignNOTE = { link = "TodoFgNOTE" }
