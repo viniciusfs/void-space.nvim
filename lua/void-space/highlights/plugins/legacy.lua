@@ -45,10 +45,10 @@ function M.get(c, opts)
 	hl.javaScriptBraces = { fg = c.fg }
 	hl.javaScriptIdentifier = { fg = c.blue }
 	hl.javaScriptFunction = { fg = c.blue }
-	hl.javaScriptNumber = { fg = c.red }
+	hl.javaScriptNumber = { fg = c.constant }
 	hl.javaScriptReserved = { fg = c.blue }
 	hl.javaScriptRequire = { fg = c.cyan }
-	hl.javaScriptNull = { fg = c.red }
+	hl.javaScriptNull = { fg = c.constant }
 
 	hl.rubyBlockParameterList = { fg = c.purple }
 	hl.rubyInterpolationDelimiter = { fg = c.purple }
