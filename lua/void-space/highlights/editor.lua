@@ -50,7 +50,7 @@ function M.get(c, opts)
 	-- Matching
 	-- MatchParen uses fg=bg_float (a background color) so the matched character is
 	-- readable on the pink highlight background (inverted rendering pattern).
-	hl.MatchParen = { fg = c.bg_float, bg = c.pink, bold = true }
+	hl.MatchParen = { fg = c.bg_inverted, bg = c.pink, bold = true }
 
 	-- Command line & message area
 	hl.MsgArea = { fg = c.fg, bg = bg_normal }
@@ -73,10 +73,10 @@ function M.get(c, opts)
 
 	-- Search
 	-- Search/IncSearch use fg=bg (inverted) to show dark text on a colored highlight.
-	hl.Search = { fg = c.bg, bg = c.yellow }
-	hl.IncSearch = { fg = c.bg, bg = c.bright_yellow, bold = true }
+	hl.Search = { fg = c.bg_inverted, bg = c.yellow }
+	hl.IncSearch = { fg = c.bg_inverted, bg = c.bright_yellow, bold = true }
 	hl.CurSearch = { link = "IncSearch" }
-	hl.Substitute = { fg = c.bg, bg = c.orange }
+	hl.Substitute = { fg = c.bg_inverted, bg = c.orange }
 
 	-- Gutter & splits
 	hl.SignColumn = { fg = c.fg_dim, bg = bg_sidebar }
@@ -112,10 +112,10 @@ function M.get(c, opts)
 	hl.QuickFixLine = { bg = c.bg_float, bold = true }
 
 	-- Diff (block) — inverted: fg=bg so text is readable on a colored background
-	hl.DiffAdd = { fg = c.bg, bg = c.green }
-	hl.DiffChange = { fg = c.bg, bg = c.yellow }
-	hl.DiffDelete = { fg = c.bg, bg = c.red }
-	hl.DiffText = { fg = c.bg, bg = c.blue }
+	hl.DiffAdd = { fg = c.bg_inverted, bg = c.green }
+	hl.DiffChange = { fg = c.bg_inverted, bg = c.yellow }
+	hl.DiffDelete = { fg = c.bg_inverted, bg = c.red }
+	hl.DiffText = { fg = c.bg_inverted, bg = c.blue }
 
 	-- Diff (inline) — fg only, no background, for inline diff views
 	hl.diffAdded = { fg = c.green }
