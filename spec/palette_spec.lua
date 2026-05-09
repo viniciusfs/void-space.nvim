@@ -2,6 +2,7 @@ local palette = require("void-space.palette")
 
 local CANONICAL_KEYS = {
   "bg_dark", "bg", "bg_float", "sel", "fg", "fg_dim",
+  "bg_inverted",
   "comment", "keyword", "func", "type_name", "string_lit", "constant", "operator",
   "type", "builtin",
   "error", "warning", "info", "hint",
