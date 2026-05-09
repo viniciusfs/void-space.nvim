@@ -1,5 +1,56 @@
 # Changelog
 
+## [0.3.0] - 2026-05-09
+
+### New Features
+
+- **Kitty terminal theme** — `extras/void-space-kitty.conf` added, ANSI color mapping
+  aligned with the existing Alacritty and Terminator themes.
+
+- **Palette sync** (`make sync`) — new `scripts/sync_palette.py` script regenerates all
+  terminal extras (`alacritty`, `terminator`, `tmux`, `kitty`), `palette_default.svg`, and
+  `void_space_logo.svg` directly from `palette.lua`. Run `make sync` after any palette
+  change to keep all assets in sync automatically.
+
+### Bug Fixes
+
+#### Transparent mode — background leaks fixed across plugins
+
+Plugins that were ignoring `opts.transparent` and rendering a solid background in
+transparent configurations are now corrected:
+
+- `render-markdown.nvim` — headings and code blocks
+- `mini.nvim` — diff, picker, statusline, tabline
+- `trouble.nvim` — preview pane
+- `snacks.nvim` — picker input and input widget
+- `noice.nvim` — `NoiceMini` background
+- `neo-tree` — tab bar inactive groups
+- `gitsigns.nvim` — line number groups
+
+#### Color and option correctness
+
+- `telescope.nvim` — prompt pane now uses transparent-aware `bg_float`
+- `bufferline.nvim` — hardcoded italic replaced with `opts.italic_keywords`
+- `cmp.nvim` — hardcoded italic and misused `c.red` replaced in kind icon groups
+- `gitsigns.nvim` — blame line now respects `opts.italic_comments`
+- `notify.nvim` — INFO severity groups corrected to `c.info` (cyan)
+- `trouble.nvim` — info/hint icon colors corrected
+- `mini.nvim` — hint/info severity colors corrected
+- `lazy.nvim` — `LazyH1` linked to `LazyButtonActive` (was duplicate spec)
+- `legacy` — `javaScriptNumber` and `javaScriptNull` use `c.constant` instead of `c.red`
+
+#### Core highlights
+
+- `@property` aligned with `@variable.member` color decision
+- `lsp` inlay hint italic now respects the `opts` system
+- `treesitter` semantic color assignments corrected
+- `syntax` `Exception` color inconsistency with treesitter resolved
+
+### Internal
+
+- Plugin highlight modules moved to `highlights/plugins/` subdirectory. No user-facing
+  impact — require paths are internal to the plugin.
+
 ## [0.2.0] - 2026-04-08
 
 ### Performance
