@@ -66,5 +66,6 @@ M.info = _cornflower_blue
 M.hint = _maya_blue
 
 M.none = "NONE"
+M.bg_inverted = M.bg
 
 return M

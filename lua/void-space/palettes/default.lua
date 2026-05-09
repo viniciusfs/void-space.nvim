@@ -63,5 +63,6 @@ M.info = M.cyan
 M.hint = M.purple
 
 M.none = "NONE"
+M.bg_inverted = M.bg
 
 return M
