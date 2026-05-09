@@ -10,7 +10,7 @@ local CANONICAL_KEYS = {
   "bright_yellow", "none",
 }
 
-local VARIANTS = { "default", "nebula" }
+local VARIANTS = { "default", "nebula", "cosmic_dawn" }
 
 for _, variant in ipairs(VARIANTS) do
   describe("void-space.palette variant: " .. variant, function()
@@ -43,7 +43,7 @@ for _, variant in ipairs(VARIANTS) do
       assert.equals("NONE", c.none)
     end)
 
-    it("bg_dark is darker than bg which is darker than fg", function()
+    it("bg_dark is darker than bg", function()
       local function luminance(hex)
         local r = tonumber(hex:sub(2, 3), 16)
         local g = tonumber(hex:sub(4, 5), 16)
@@ -52,8 +52,22 @@ for _, variant in ipairs(VARIANTS) do
       end
       assert.is_true(luminance(c.bg_dark) < luminance(c.bg),
         "bg_dark should be darker than bg")
-      assert.is_true(luminance(c.bg) < luminance(c.fg),
-        "bg should be darker than fg")
+    end)
+
+    it("fg and bg have the right luminance relationship for the background type", function()
+      local function luminance(hex)
+        local r = tonumber(hex:sub(2, 3), 16)
+        local g = tonumber(hex:sub(4, 5), 16)
+        local b = tonumber(hex:sub(6, 7), 16)
+        return 0.2126 * r + 0.7152 * g + 0.0722 * b
+      end
+      if c.background == "light" then
+        assert.is_true(luminance(c.fg) < luminance(c.bg),
+          "light theme: fg should be darker than bg")
+      else
+        assert.is_true(luminance(c.bg) < luminance(c.fg),
+          "dark theme: bg should be darker than fg")
+      end
     end)
   end)
 end
