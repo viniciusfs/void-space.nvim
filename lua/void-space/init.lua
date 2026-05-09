@@ -44,11 +44,11 @@ function M.load()
 		vim.cmd("syntax reset")
 	end
 
-	vim.o.background = "dark"
 	vim.o.termguicolors = true
 	vim.g.colors_name = "void-space"
 
 	local palette = require("void-space.palette").get(M.config.variant)
+	vim.o.background = palette.background or "dark"
 	local cache = require("void-space.cache")
 
 	local highlights
