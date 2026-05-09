@@ -41,7 +41,7 @@ This is the only change needed in `init.lua`. All existing dark palettes omit th
 
 ### Changes to `lua/void-space/highlights/editor.lua`
 
-Nine highlight groups currently use `fg = c.bg` or `fg = c.bg_float` as "inverted text" — dark text on a colored background. On a light palette these resolve to a light color, breaking contrast. Each is updated to `fg = c.bg_inverted`:
+Eight highlight groups currently use `fg = c.bg` or `fg = c.bg_float` as "inverted text" — dark text on a colored background. On a light palette these resolve to a light color, breaking contrast. Each is updated to `fg = c.bg_inverted`:
 
 | Group | Old | New |
 |---|---|---|
