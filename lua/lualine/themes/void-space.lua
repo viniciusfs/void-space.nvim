@@ -1,7 +1,7 @@
 -- Lualine theme for void-space
 -- Loaded automatically when lualine is configured with theme = 'void-space'
 
-local c = require("void-space.palette").get()
+local c = require("void-space.palette").get(require("void-space").config.variant)
 
 local vs = {}
 

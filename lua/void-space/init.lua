@@ -11,7 +11,7 @@ local M = {}
 
 ---@type VoidSpaceConfig
 M.config = {
-	variant = "deep_space",
+	variant = "default",
 	italic_comments = true,
 	italic_keywords = false,
 	transparent = false,

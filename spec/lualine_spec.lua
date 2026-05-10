@@ -85,3 +85,32 @@ for _, entry in ipairs(THEMES) do
     end)
   end)
 end
+
+describe("lualine theme void-space: auto-adapts to configured variant", function()
+  local void_space
+
+  before_each(function()
+    package.loaded["lualine.themes.void-space"] = nil
+    void_space = require("void-space")
+  end)
+
+  after_each(function()
+    void_space.config.variant = "default"
+  end)
+
+  it("uses cosmic_dawn palette when config variant is cosmic_dawn", function()
+    void_space.config.variant = "cosmic_dawn"
+    local theme = require("lualine.themes.void-space")
+    local p = require("void-space.palette").get("cosmic_dawn")
+    assert.equals(p.bg, theme.normal.a.fg,
+      "expected normal.a.fg to match cosmic_dawn palette bg")
+  end)
+
+  it("uses nebula palette when config variant is nebula", function()
+    void_space.config.variant = "nebula"
+    local theme = require("lualine.themes.void-space")
+    local p = require("void-space.palette").get("nebula")
+    assert.equals(p.bg, theme.normal.a.fg,
+      "expected normal.a.fg to match nebula palette bg")
+  end)
+end)
