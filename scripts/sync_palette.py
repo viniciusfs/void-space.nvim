@@ -49,6 +49,7 @@ _PLACEHOLDER_RE = re.compile(r"\{\{(\w+)\}\}")
 
 TEMPLATE_TARGETS = [
     ("void-space-alacritty.toml.tmpl",   ROOT / "extras" / "void-space-alacritty.toml"),
+    ("void-space-kitty.conf.tmpl",       ROOT / "extras" / "void-space-kitty.conf"),
     ("void-space-terminator.conf.tmpl",  ROOT / "extras" / "void-space-terminator.conf"),
     ("void-space-tmux.conf.tmpl",        ROOT / "extras" / "void-space-tmux.conf"),
 ]
