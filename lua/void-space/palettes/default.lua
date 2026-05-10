@@ -20,6 +20,10 @@ local _pelorous = "#4ab5c4"
 local _medium_wood = "#ba8873"
 local _orchid = "#cc7dd0"
 local _putty = "#d5ad75"
+local _sprout = "#A9D2A6"
+local _cornflower = "#7FA5D7"
+local _spray = "#69CAD8"
+local _wax_flower = "#DCA8AC"
 
 -- -------------------------
 -- Semantic color
@@ -43,6 +47,10 @@ M.pink = _orchid
 M.orange = _medium_wood
 
 M.bright_yellow = _putty
+M.bright_green  = _sprout
+M.bright_blue   = _cornflower
+M.bright_cyan   = _spray
+M.bright_red    = _wax_flower
 
 -- Syntax roles
 M.comment = M.fg_dim

@@ -82,18 +82,18 @@ function M.load()
 	vim.g.terminal_color_0  = palette.bg
 	vim.g.terminal_color_8  = palette.bg_float
 	vim.g.terminal_color_1  = palette.red
-	vim.g.terminal_color_9  = palette.orange
+	vim.g.terminal_color_9  = palette.bright_red
 	vim.g.terminal_color_2  = palette.green
-	vim.g.terminal_color_10 = palette.green
+	vim.g.terminal_color_10 = palette.bright_green
 	vim.g.terminal_color_3  = palette.yellow
 	vim.g.terminal_color_11 = palette.bright_yellow
 	vim.g.terminal_color_4  = palette.blue
-	vim.g.terminal_color_12 = palette.blue
+	vim.g.terminal_color_12 = palette.bright_blue
 	vim.g.terminal_color_5  = palette.purple
 	vim.g.terminal_color_13 = palette.pink
 	vim.g.terminal_color_6  = palette.cyan
-	vim.g.terminal_color_14 = palette.fg_dim
-	vim.g.terminal_color_7  = palette.sel
+	vim.g.terminal_color_14 = palette.bright_cyan
+	vim.g.terminal_color_7  = palette.fg_dim
 	vim.g.terminal_color_15 = palette.fg
 
 	vim.api.nvim_create_user_command("VoidSpaceClearCache", function()

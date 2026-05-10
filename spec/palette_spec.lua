@@ -7,7 +7,8 @@ local CANONICAL_KEYS = {
   "type", "builtin",
   "error", "warning", "info", "hint",
   "red", "green", "yellow", "blue", "cyan", "purple", "orange", "pink",
-  "bright_yellow", "none",
+  "bright_yellow", "bright_green", "bright_blue", "bright_cyan", "bright_red",
+  "none",
 }
 
 local VARIANTS = { "default", "nebula", "cosmic_dawn" }

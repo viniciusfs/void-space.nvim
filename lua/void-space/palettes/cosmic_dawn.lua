@@ -21,6 +21,10 @@ local _violet        = "#6040A8"
 local _rose          = "#983080"
 local _sienna        = "#8A5020"
 local _bright_gold   = "#D4A820"
+local _bright_forest = "#33A53D"
+local _cobalt        = "#2F62DC"
+local _pacific       = "#1E8BBA"
+local _scarlet       = "#D41F4C"
 
 -- -------------------------
 -- Semantic colors
@@ -45,6 +49,10 @@ M.purple       = _violet
 M.pink         = _rose
 M.orange       = _sienna
 M.bright_yellow = _bright_gold
+M.bright_green  = _bright_forest
+M.bright_blue   = _cobalt
+M.bright_cyan   = _pacific
+M.bright_red    = _scarlet
 
 -- Syntax roles
 M.comment    = M.fg_dim

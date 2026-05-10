@@ -24,6 +24,10 @@ local _hot_magenta     = "#E060C8"  -- pink
 local _amber_star      = "#E0902A"  -- orange / constants
 local _heliotrope      = "#C87EFF"  -- operators
 local _bright_gold     = "#F0D880"  -- bright yellow
+local _vivid_teal      = "#5AE5BE"  -- bright green
+local _vivid_blue      = "#7F92F4"  -- bright blue
+local _vivid_cyan      = "#69E0FA"  -- bright cyan
+local _vivid_rose      = "#EE658E"  -- bright red
 
 -- -------------------------
 -- Semantic colors
@@ -47,6 +51,10 @@ M.purple       = _electric_violet
 M.pink         = _hot_magenta
 M.orange       = _amber_star
 M.bright_yellow = _bright_gold
+M.bright_green  = _vivid_teal
+M.bright_blue   = _vivid_blue
+M.bright_cyan   = _vivid_cyan
+M.bright_red    = _vivid_rose
 
 -- Syntax roles (magenta dominant)
 M.comment    = M.fg_dim
