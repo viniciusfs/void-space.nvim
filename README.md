@@ -6,11 +6,16 @@ A dark Neovim colorscheme inspired by deep space and nebula texture. Vivid but s
 
 ## Examples
 
-<p align="center">
-  <img src="assets/demo.png" width="894" >
-
-  <img src="assets/demo2.png" width="894" >
-</p>
+<table>
+  <tr>
+    <td><img src="assets/demo/code_python.png" alt="Python"></td>
+    <td><img src="assets/demo/code_golang.png" alt="Go"></td>
+  </tr>
+  <tr>
+    <td><img src="assets/demo/code_javascript.png" alt="JavaScript"></td>
+    <td><img src="assets/demo/code_bash_script.png" alt="Bash"></td>
+  </tr>
+</table>
 
 ## Palette
 
@@ -40,9 +45,8 @@ See [docs/PALETTE.md](docs/PALETTE.md) for the full palette reference — identi
     italic_keywords  = false,
     transparent      = false,
     dim_inactive     = false,
-    -- override any highlight group after the theme loads:
     -- on_highlights = function(hl, c)
-    --   hl.CursorLine = { bg = c.gray3 }
+    --   hl.CursorLine = { bg = c.sel }
     -- end,
   },
   config = function(_, opts)
@@ -120,40 +124,63 @@ require('void-space').setup({
 
 ### Lualine
 
-The theme is picked up automatically when lualine's `theme` option is set:
+The theme is picked up automatically when lualine's `theme` option is set. Use the theme name that matches the active variant:
 
 ```lua
 require('lualine').setup({
-  options = { theme = 'void-space' },
+  options = { theme = 'void-space' },           -- default variant
+  -- options = { theme = 'void-space-nebula' },       -- nebula variant
+  -- options = { theme = 'void-space-cosmic-dawn' },  -- cosmic_dawn variant
 })
+```
+
+### Variants (Experimental)
+
+Two additional variants are available: **nebula** and **cosmic_dawn**. Both are experimental — palette and highlight assignments may still change between releases.
+
+<table>
+  <tr>
+    <td align="center"><strong>nebula</strong></td>
+    <td align="center"><strong>cosmic_dawn</strong></td>
+  </tr>
+  <tr>
+    <td><img src="assets/demo/nebula.png" alt="Nebula variant"></td>
+    <td><img src="assets/demo/cosmic_dawn.png" alt="Cosmic Dawn variant"></td>
+  </tr>
+</table>
+
+To activate a variant, set the `variant` option in `setup()`:
+
+```lua
+require('void-space').setup({ variant = 'nebula' })       -- or 'cosmic_dawn'
+vim.cmd('colorscheme void-space')
 ```
 
 ## Plugin support
 
 | Plugin | Highlight definition |
 |--------|----------------------|
-| [bufferline.nvim](https://github.com/akinsho/bufferline.nvim) | [highlights/bufferline.lua](lua/void-space/highlights/bufferline.lua) |
-| [blink.cmp](https://github.com/Saghen/blink.cmp) | [highlights/cmp.lua](lua/void-space/highlights/cmp.lua) |
-| [dashboard-nvim](https://github.com/nvimdev/dashboard-nvim) | [highlights/dashboard.lua](lua/void-space/highlights/dashboard.lua) |
-| [fidget.nvim](https://github.com/j-hui/fidget.nvim) | [highlights/fidget.lua](lua/void-space/highlights/fidget.lua) |
-| [flash.nvim](https://github.com/folke/flash.nvim) | [highlights/flash.lua](lua/void-space/highlights/flash.lua) |
-| [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) | [highlights/gitsigns.lua](lua/void-space/highlights/gitsigns.lua) |
-| [illuminate.nvim](https://github.com/RRethy/vim-illuminate) | [highlights/illuminate.lua](lua/void-space/highlights/illuminate.lua) |
-| [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim) | [highlights/indent.lua](lua/void-space/highlights/indent.lua) |
-| [lazy.nvim](https://github.com/folke/lazy.nvim) | [highlights/lazy.lua](lua/void-space/highlights/lazy.lua) |
+| [bufferline.nvim](https://github.com/akinsho/bufferline.nvim) | [highlights/plugins/bufferline.lua](lua/void-space/highlights/plugins/bufferline.lua) |
+| [blink.cmp](https://github.com/Saghen/blink.cmp) | [highlights/plugins/cmp.lua](lua/void-space/highlights/plugins/cmp.lua) |
+| [dashboard-nvim](https://github.com/nvimdev/dashboard-nvim) | [highlights/plugins/dashboard.lua](lua/void-space/highlights/plugins/dashboard.lua) |
+| [fidget.nvim](https://github.com/j-hui/fidget.nvim) | [highlights/plugins/fidget.lua](lua/void-space/highlights/plugins/fidget.lua) |
+| [flash.nvim](https://github.com/folke/flash.nvim) | [highlights/plugins/flash.lua](lua/void-space/highlights/plugins/flash.lua) |
+| [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) | [highlights/plugins/gitsigns.lua](lua/void-space/highlights/plugins/gitsigns.lua) |
+| [illuminate.nvim](https://github.com/RRethy/vim-illuminate) | [highlights/plugins/illuminate.lua](lua/void-space/highlights/plugins/illuminate.lua) |
+| [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim) | [highlights/plugins/indent.lua](lua/void-space/highlights/plugins/indent.lua) |
+| [lazy.nvim](https://github.com/folke/lazy.nvim) | [highlights/plugins/lazy.lua](lua/void-space/highlights/plugins/lazy.lua) |
 | [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) | [lualine/themes/void-space.lua](lua/lualine/themes/void-space.lua) |
-| [mini.nvim](https://github.com/echasnovski/mini.nvim) | [highlights/mini.lua](lua/void-space/highlights/mini.lua) |
-| [neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim) | [highlights/neo\_tree.lua](lua/void-space/highlights/neo_tree.lua) |
-| [noice.nvim](https://github.com/folke/noice.nvim) | [highlights/noice.lua](lua/void-space/highlights/noice.lua) |
-| [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) | [highlights/cmp.lua](lua/void-space/highlights/cmp.lua) |
-| [nvim-notify](https://github.com/rcarriga/nvim-notify) | [highlights/notify.lua](lua/void-space/highlights/notify.lua) |
-| [render-markdown.nvim](https://github.com/MeanderingProgrammer/render-markdown.nvim) | [highlights/render\_markdown.lua](lua/void-space/highlights/render_markdown.lua) |
-| [snacks.nvim](https://github.com/folke/snacks.nvim) | [highlights/snacks.lua](lua/void-space/highlights/snacks.lua) |
-| [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) | [highlights/telescope.lua](lua/void-space/highlights/telescope.lua) |
-| [todo-comments.nvim](https://github.com/folke/todo-comments.nvim) | [highlights/todo\_comments.lua](lua/void-space/highlights/todo_comments.lua) |
-| [trouble.nvim](https://github.com/folke/trouble.nvim) | [highlights/trouble.lua](lua/void-space/highlights/trouble.lua) |
-| [vim-fugitive](https://github.com/tpope/vim-fugitive) | [highlights/editor.lua](lua/void-space/highlights/editor.lua) |
-| [which-key.nvim](https://github.com/folke/which-key.nvim) | [highlights/which\_key.lua](lua/void-space/highlights/which_key.lua) |
+| [mini.nvim](https://github.com/echasnovski/mini.nvim) | [highlights/plugins/mini.lua](lua/void-space/highlights/plugins/mini.lua) |
+| [neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim) | [highlights/plugins/neo\_tree.lua](lua/void-space/highlights/plugins/neo_tree.lua) |
+| [noice.nvim](https://github.com/folke/noice.nvim) | [highlights/plugins/noice.lua](lua/void-space/highlights/plugins/noice.lua) |
+| [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) | [highlights/plugins/cmp.lua](lua/void-space/highlights/plugins/cmp.lua) |
+| [nvim-notify](https://github.com/rcarriga/nvim-notify) | [highlights/plugins/notify.lua](lua/void-space/highlights/plugins/notify.lua) |
+| [render-markdown.nvim](https://github.com/MeanderingProgrammer/render-markdown.nvim) | [highlights/plugins/render\_markdown.lua](lua/void-space/highlights/plugins/render_markdown.lua) |
+| [snacks.nvim](https://github.com/folke/snacks.nvim) | [highlights/plugins/snacks.lua](lua/void-space/highlights/plugins/snacks.lua) |
+| [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) | [highlights/plugins/telescope.lua](lua/void-space/highlights/plugins/telescope.lua) |
+| [todo-comments.nvim](https://github.com/folke/todo-comments.nvim) | [highlights/plugins/todo\_comments.lua](lua/void-space/highlights/plugins/todo_comments.lua) |
+| [trouble.nvim](https://github.com/folke/trouble.nvim) | [highlights/plugins/trouble.lua](lua/void-space/highlights/plugins/trouble.lua) |
+| [which-key.nvim](https://github.com/folke/which-key.nvim) | [highlights/plugins/which\_key.lua](lua/void-space/highlights/plugins/which_key.lua) |
 
 ## License
 

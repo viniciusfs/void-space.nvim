@@ -1,5 +1,47 @@
 # Changelog
 
+## [0.4.0] - 2026-05-16
+
+### New Features
+
+- **cosmic_dawn palette** — new warm light theme inspired by desert sunrise. Soft amber
+  and rose tones on a warm off-white background. Activate with `variant = 'cosmic_dawn'`
+  in `setup()` and `theme = 'void-space-cosmic-dawn'` for lualine.
+
+- **nebula redesign — "electric void"** — rebuilt from scratch as a high-contrast dark
+  variant with deep violet backgrounds, electric magenta/pink syntax, and neon cyan
+  accents. The previous nebula palette is fully replaced by this redesign.
+
+- **Lualine themes for all variants** — dedicated lualine theme files for `nebula`
+  (`void-space-nebula`) and `cosmic_dawn` (`void-space-cosmic-dawn`). The default
+  `void-space` lualine theme now auto-adapts to whichever variant is configured — no
+  separate lualine config needed when using the default variant.
+
+- **Kitty terminal theme updated** (`extras/void-space-kitty.conf`) — revised to match
+  corrected ANSI bright slot assignments.
+
+### Bug Fixes
+
+- `editor` — `StatusLine` background was using `sel` (selection highlight); corrected to
+  `bg` for a neutral status bar.
+
+- `terminal-colors` — all 16 ANSI slots are now correctly mapped. Bright variant colors
+  (`bright_red`, `bright_green`, `bright_blue`, `bright_cyan`, `bright_yellow`) were
+  missing from slots 9–15. Alacritty and Terminator extras updated to match.
+
+- `editor` — inverted-text highlight groups (`VisualNOS`, `Substitute`, `IncSearch`)
+  now use `bg_inverted` instead of a hardcoded color, ensuring correct rendering across
+  all variants including the light `cosmic_dawn` theme.
+
+### Internal
+
+- New `bg_inverted` semantic key in all palette files — used for highlight groups that
+  render foreground text against the inverted background.
+
+- `background` field added to palette files — the active palette now declares `dark` or
+  `light` and the loader reads it directly, rather than hardcoding `dark`. This is what
+  enables `cosmic_dawn` to set `vim.o.background = 'light'` automatically.
+
 ## [0.3.0] - 2026-05-09
 
 ### New Features
