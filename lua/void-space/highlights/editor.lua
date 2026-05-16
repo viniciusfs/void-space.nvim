@@ -90,7 +90,7 @@ function M.get(c, opts)
 	hl.SpellRare = { sp = c.purple, undercurl = true }
 
 	-- Status line & tab line
-	hl.StatusLine = { fg = c.fg, bg = c.sel }
+	hl.StatusLine = { fg = c.fg, bg = c.bg }
 	hl.StatusLineNC = { fg = c.fg_dim, bg = c.bg_float }
 	hl.StatusLineTerm = { link = "StatusLine" }
 
