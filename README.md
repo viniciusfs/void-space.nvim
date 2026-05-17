@@ -2,7 +2,7 @@
   <img src="assets/void_space_logo.svg" width="894" >
 </p>
 
-A dark Neovim colorscheme inspired by deep space and nebula texture. Vivid but sober, low contrast by design. Full TreeSitter, LSP, diagnostics, and [LazyVim](https://wwww.lazyvim.org/) plugin coverage.
+A dark Neovim colorscheme inspired by [vim-deep-space](https://github.com/tyrannicaltoucan/vim-deep-space) and nebula texture. Vivid but sober, low contrast by design. Full TreeSitter, LSP, diagnostics, and [LazyVim](https://wwww.lazyvim.org/) plugin coverage.
 
 ## Examples
 
